@@ -1,0 +1,328 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'inter', poppins, roboto;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background: #1E1E1E !important;
+    color: white !important;
+}
+
+/* Preloader section/file */
+
+.container{
+    height: 100vh;
+    width: 100%;
+}
+
+.container .preloader-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .preloader-container .preloader{
+    height: 50px;
+    width: 50px;
+    background: #1ad1ff;
+    border-radius: 100%;
+    box-shadow: inset 0px 20px 30px #0073df;
+    animation: bounce 2s 0s infinite ease-in-out;
+}
+
+@keyframes bounce {
+    0%{
+        transform: translateY(-20px);
+    }
+
+    25%{
+        transform: translateY(0px);
+    }
+
+    50%{
+        transform: translateY(-20px);
+    }
+
+    75%{
+        transform: translateY(0px);
+    }
+
+    100%{
+        transform: translateY(-20px);
+    }
+}
+
+.container .preloader-container .preloader-shadow{
+    width: 60px;
+    height: 10px;
+    background: rgba(26, 209, 255, 0.25);
+    filter: blur(7px);
+    border-radius: 100%;
+    animation: disappear 2s 0s infinite ease-in-out;
+}
+
+
+
+@keyframes disappear {
+    0%{
+        background: rgba(26, 209, 255, 0.06);
+        width: 10px;
+    }
+
+    25%{
+        background: rgba(26, 209, 255, 0.25);
+        width: 60px;
+    }
+
+    50%{
+        background: rgba(26, 209, 255, 0.06);
+        width: 10px;
+    }
+
+    75%{
+        background: rgba(26, 209, 255, 0.25);
+        width: 60px;
+    }
+
+    100%{
+        background: rgba(26, 209, 255, 0.06);
+        width: 10px;
+    }
+}
+
+/* Navbar section */
+
+.container-fluid{
+    position: relative;
+    height: fit-content !important;
+}
+
+.container-fluid .navbar-container{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0 !important;
+}
+
+.container-fluid .navbar-container .navbar{
+    width: 90%;
+    background-color: #ffffff !important;
+    padding: 5px 0px !important;
+}
+
+.container-fluid .navbar-container .navbar .container-fluid{
+    font-size: 1rem !important;
+}
+
+.container-fluid .navbar-container .navbar .container-fluid .navbar-brand .nav-image-container img{
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 100%;
+}
+
+.container-fluid .navbar-container .navbar .container-fluid .collapse .collapse-nav{
+    width: 100%;
+}
+
+.container-fluid .navbar-container .navbar .container-fluid .collapse .collapse-nav .navbar-nav .nav-item{
+    font-weight: 500 !important;
+    padding: 0 !important;
+    border-bottom: 3px solid transparent;
+    transition: border-color .5s 0s ease-in-out;
+}
+
+.container-fluid .navbar-container .navbar .container-fluid .collapse .collapse-nav .navbar-nav .nav-item:hover{
+    border-bottom-color: #2093FF;
+    color: #2093FF !important;
+}
+
+.container-fluid .navbar-container .navbar .container-fluid .collapse .collapse-nav .navbar-nav .nav-item a{
+    color: #000 !important;
+}
+
+.container-fluid .navbar-container .navbar .container-fluid .collapse .collapse-nav .hire-btn button{
+    font-size: 1rem !important;
+    background-color: #2093FF;
+}
+
+/* Hero section */
+
+.container-fluid .hero-section{
+    margin: 10% 0% 5% 0%;
+    z-index: -1;
+}
+
+.container-fluid .hero-section .hero-detail .hero-title h1{
+    font-family: 'Open Sans', roboto !important;
+    font-weight: 800 !important;
+}
+
+.container-fluid .hero-section .hero-detail .hero-title h1 span{
+    color: #01ccff;
+}
+
+.container-fluid .hero-section .hero-detail .hero-title h3 span{
+    color: #01ccff;
+    font-weight: 600;
+    font-family: 'Open Sans', roboto !important;
+}
+
+.container-fluid .hero-section .hero-detail .hero-title p{
+    font-size: .9rem !important;
+    color: gainsboro;
+    width: 80%;
+    font-family: 'Poppins', inter;
+}
+
+.container-fluid .hero-section .hero-detail .hero-title .icon-hero a{
+    font-size: .9rem !important;
+    color: #01ccff;
+    border: 1px solid #01ccff;
+    border-radius: 100%;
+    font-size: .9rem !important;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-fluid .hero-section .hero-detail .hero-title .icon-hero a:hover{
+    background: #01ccff;
+    color: white;
+    border: none;
+}
+
+.container-fluid .hero-section .hero-image .image-hero-container{
+    border: 1rem solid #01ccff !important;
+    height: fit-content;
+    border-radius: 100%;
+    box-shadow: 0px 0px 30px 5px rgba(1, 204, 255, .1), 
+            0px 0px 30px 5px rgba(1, 204, 255, .1),
+            0px 0px 30px 5px rgba(1, 204, 255, .1),
+            0px 0px 30px 5px rgba(1, 204, 255, .1);
+    animation: shadow 3s -1s infinite ease-in-out;
+    
+}
+
+
+.container-fluid .hero-section .hero-image span img{
+    border-radius: 100% !important;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.container-fluid .hero-section .hero-detail .hero-title button{
+    background: #2093FF;
+    color: white;
+    border-radius: 5px;
+}
+
+.container-fluid .hero-section .hero-detail .hero-title button:hover{
+    background: none;
+    color: #2093FF;
+    border-radius: 5px;
+    border: 2px solid #2093FF;
+    transition: all .5s ease-in-out !important;
+}
+
+/* About section */
+
+.container-fluid .about-container{
+    background: #282727;
+}
+
+.container-fluid .about-container .hero-image .image-hero-container{
+    border: 1rem solid #01ccff !important;
+    height: fit-content;
+    border-radius: 100%;
+    box-shadow: 0px 0px 30px 5px rgba(1, 204, 255, .1), 
+            0px 0px 30px 5px rgba(1, 204, 255, .1),
+            0px 0px 30px 5px rgba(1, 204, 255, .1),
+            0px 0px 30px 5px rgba(1, 204, 255, .1);
+    animation: shadow 3s -1s infinite ease-in-out;
+    
+}
+
+.container-fluid .about-container .hero-image span img{
+    border-radius: 100% !important;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.container-fluid .about-container .about-detail span h2{
+    font-family: 'Poppins', roboto !important;
+    width: 100%;
+}
+
+
+.container-fluid .about-container .about-detail span h2 span{
+    color: #2093FF !important;
+    font-weight: 600 !important;
+}
+
+.container-fluid .about-container .about-detail span .underline{
+    background: #2093FF;
+    height: 5px;
+    width: 6rem;
+}
+
+.container-fluid .about-container .about-detail p{
+    font-family: 'Poppins', inter;
+    font-size: .9rem;
+}
+
+/* Services section */
+
+.container-fluid .service-container .service-head{
+    color: #2093FF;
+    font-weight: 600;
+}
+
+.container-fluid .service-container .service .service-box{
+    background: #000;
+    padding: 2rem !important;
+    border-radius: 15px;
+}
+
+.container-fluid .service-container .service .service-box:hover{
+    box-shadow: 0px 0px 10px 5px #2093FF;
+    border-radius: 15px;
+    transition: all .5s ease-in-out;
+}
+
+.container-fluid .service-container .service .service-box i{
+    color: #01ccff;
+    font-size: 1.8rem !important;
+}
+
+.container-fluid .service-container .service .service-box b{
+    font-size: 1.3rem !important;
+    font-family: 'Open Sans', roboto !important;
+}
+
+.container-fluid .service-container .service .service-box p{
+    font-size: .9rem !important;
+    color: gainsboro;
+    font-family: 'Poppins', roboto !important;
+    width: 100%;
+}
+
+/* Project section */
+
+.container-fluid .project-container{
+    background: #282727;
+}

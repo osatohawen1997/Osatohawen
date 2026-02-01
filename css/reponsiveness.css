@@ -1,0 +1,171 @@
+/* Navbar section */
+
+@media (max-width: 991.98px) {
+    .container-fluid .navbar-container .navbar{
+        background: rgba(255, 255, 255, 0.2) !important;
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 3px solid rgba(32, 147, 255, .3);
+        width: 100%;
+        margin: 0px 10px 0px 10px;
+    }
+
+    .container-fluid .navbar-container .navbar .container-fluid .navbar-toggler{
+        border: none;
+    }
+
+    .container-fluid .navbar-container .navbar .container-fluid .navbar-toggler:focus{
+        box-shadow: none !important;
+        border: 2px solid #2093ff;
+    }
+
+    .container-fluid .navbar-container .navbar .container-fluid .navbar-toggler i{
+        color: #2093ff !important;
+        
+    }
+
+    .container-fluid .navbar-container .navbar .container-fluid .navbar-collapse .collapse-nav{
+        justify-content: center !important;
+    }
+
+    .container-fluid .navbar-container .navbar .container-fluid .navbar-collapse .collapse-nav ul{
+        text-align: center !important;
+        width: 80%;
+    }
+
+    .container-fluid .navbar-container .navbar .container-fluid .navbar-collapse .collapse-nav ul li{
+        border-bottom: .5px solid gainsboro !important;   
+    }
+
+    .container-fluid .navbar-container .navbar .container-fluid .navbar-collapse .collapse-nav ul li:nth-child(5){
+        border-bottom: none !important;   
+    }
+
+    .container-fluid .navbar-container .navbar .container-fluid .collapse .collapse-nav ul li:hover{
+        border-bottom-color: none !important;    
+    }
+
+    .container-fluid .navbar-container .navbar .container-fluid .collapse .collapse-nav .navbar-nav .nav-item a{
+        color: #2093ff !important;
+        width: 100% !important;
+    }
+
+    .container-fluid .navbar-container .navbar .container-fluid .navbar-collapse .collapse-nav span{
+        display: none;
+    }
+}
+
+/* Hero section */
+
+@media (max-width: 991.98px) {
+    
+    .container-fluid .hero-section{
+        margin-top: 20%;
+    }
+
+}
+
+@media (max-width: 767.98px) {
+    .container-fluid .hero-section{
+        flex-direction: column !important;
+        align-items: center;
+    }
+    
+    .container-fluid .hero-section .hero-detail{
+        align-items: center;
+    }
+    
+    .container-fluid .hero-section .hero-detail .hero-title{
+        display: flex !important;
+        flex-direction: column;
+        align-items: center !important;
+    }
+
+    .container-fluid .hero-section .hero-detail .hero-title p{
+        text-align: center;
+        width: 90%;
+    }
+
+    .container-fluid .hero-section .hero-image {
+        padding: 50px 0px!important;
+    }
+
+    .container-fluid .hero-section .hero-image span{
+        width: 80% !important;
+        height: 80% !important;
+        margin: auto !important;
+    }
+
+}
+
+@media (max-width: 690.98px) {
+    
+    .container-fluid .hero-section{
+        margin-top: 25%;
+    }
+
+}
+
+/* About section */
+
+@media (max-width: 767.98px) {
+    .container-fluid .about-container{
+        flex-direction: column-reverse !important;
+    }
+
+    .container-fluid .about-container .hero-image {
+        padding: 50px 0px!important;
+    }
+
+    .container-fluid .about-container .hero-image span{
+        width: 80% !important;
+        height: 80% !important;
+        margin: auto !important;
+    }
+
+    .container-fluid .about-container .about-detail{
+        text-align: center;
+        padding: 0px 5px;
+    }
+
+    .container-fluid .about-container .about-detail span .underline{
+        margin: auto;
+    }
+}
+
+/* Services section */
+
+@media (max-width: 991px) {
+    .container-fluid .service-container{
+        justify-content: center !important;
+    }
+
+    .container-fluid .service-container .service .service-box b{
+        font-size: 1.8rem !important;
+    }
+    
+    .container-fluid .service-container .service .service-box p{
+        font-size: 1.2rem !important;
+    }
+
+    .container-fluid .service-container .service .service-box{
+        border: 2px solid #01ccff;
+        
+    }
+
+    .container-fluid .service-container .service .service-box:hover{
+        box-shadow: none;
+    }
+}
+
+@media (max-width: 575px) {
+    .container-fluid .service-container .service .service-box b{
+        font-size: 1.3rem !important;
+    }
+    
+    .container-fluid .service-container .service .service-box p{
+        font-size: .9rem !important;
+    }
+}

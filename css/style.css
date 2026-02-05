@@ -323,6 +323,33 @@ body{
 
 /* Project section */
 
+.container-fluid .project-container .project-head{
+    color: #2093FF;
+    font-weight: 600;
+}
+
 .container-fluid .project-container{
     background: #282727;
+}
+
+.container-fluid .project-container .projects .card{
+    background: #000;
+    color: white;
+    border: 2px solid #2093FF;
+}
+
+.container-fluid .project-container .projects .card .card-image-container{
+    width: 100% !important;
+    height: 15rem !important;
+}
+
+.container-fluid .project-container .projects .card .card-image-container img{
+    width: 100% !important;
+    height: 15rem !important;
+    object-fit: cover;
+}
+
+.container-fluid .project-container .projects .card .card-body button{
+    background-color: #2093FF;
+    color: white;
 }

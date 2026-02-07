@@ -135,6 +135,14 @@
     }
 }
 
+@media (max-width: 575.98px) {
+
+    .container-fluid .about-container .hero-image {
+        display: none !important;
+    }
+
+}
+
 /* Services section */
 
 @media (max-width: 991px) {
@@ -167,6 +175,14 @@
     
     .container-fluid .service-container .service .service-box p{
         font-size: .9rem !important;
+    }
+}
+
+
+/* Tech stack section */
+@media (width < 768px){
+    .container-fluid .tech-stack-container .tech-stack-col .tech-stack-box{
+        width: 47%;
     }
 }
 
@@ -288,5 +304,15 @@
 @media (max-width: 575.98px) {
     .container-fluid .project-container .projects .sm-project .sm-project-container .project-card{
         width: 90%;
+    }
+}
+
+/* Footer section */
+
+
+@media (max-width: 991.98px) {
+    
+    .container-fluid .top-container{
+        padding-top: 0 !important;
     }
 }

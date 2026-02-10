@@ -406,6 +406,16 @@ body{
 
 .footer-container{
     background: #282727 !important;
+    position: relative;
+}
+
+.footer-container .side-bar{
+    background: #01ccff;
+    position: absolute;
+    right: 0;
+    width: 10%;
+    height: 100%;
+    top: 0;
 }
 
 .container-fluid .top-container .top-col{
@@ -457,4 +467,72 @@ body{
 
 .container-fluid .top-container .top-col a:hover i{
     animation-play-state: paused;
+}
+
+.footer-container .contact-container .footer-col span h3 span{
+    color: #01ccff;
+    font-family: 'Open Sans', Roboto !important;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.footer-container .contact-container .footer-col span p{
+    font-family: 'Poppins', inter;
+}
+
+.footer-container .contact-container .footer-col form{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+.footer-container .contact-container .footer-col form input:focus, textarea:focus{
+    box-shadow: none !important;
+    border: 2px solid #2093FF !important;
+}
+
+.footer-container .contact-container .footer-col form button{
+    background: #2093FF;
+    color: white;
+
+}
+
+.footer-container .contact-container .footer-col form button:hover{
+    background-color: #166cbd;
+}
+
+.footer-container .contact-container .footer-col:nth-child(2){
+    position: relative;
+}
+
+
+.footer-container .contact-container .footer-col  .schedule-container{
+    background: #1E1E1E;
+    padding: 40px 0px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    width: 50%;
+    position: absolute;
+    right: 0;
+}
+
+
+.footer-container .contact-container .footer-col  .schedule-container div{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+.footer-container .contact-container .footer-col  .schedule-container div p{
+    font-family: 'Poppins', Inter;
+}
+
+.footer-container .contact-container .footer-col .schedule-container .float-box{
+    width: 3.5rem;
+    height: 3.5rem;
+    background: #01ccff;
+    position: absolute;
+    left: -5%;
+    top: -5%;
 }

@@ -21,6 +21,10 @@
             <div class="preloader-shadow"></div>
         </div>
     </div>
-    
+
+    <?php
+        Header('refresh: 7; url=../html/homepage.html');
+    ?>
+
 </body>
 </html>

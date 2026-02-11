@@ -313,6 +313,90 @@
 @media (max-width: 991.98px) {
     
     .container-fluid .top-container{
-        padding-top: 0 !important;
+        padding-top: 1rem !important;
+        padding-bottom: 0 !important;
+    }
+
+    .footer-container .contact-container{
+        display: flex;
+    }
+}
+
+@media (width < 850px) {
+    .footer-container .contact-container{
+        flex-direction: column;
+        row-gap: 3rem;
+        align-items: center;
+    }
+
+    .footer-container .contact-container .side-bar{
+        display: none;
+    }
+
+    .footer-container .contact-container .footer-col{
+        width: 90% !important;
+        padding: 1rem 0rem 1rem 0rem;
+    }
+
+    .footer-container .contact-container .footer-col .contact-title{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .footer-container .contact-container .footer-col .contact-title p{
+        width: 50%;
+        text-align: center;
+    }
+    
+    .footer-container .contact-container .footer-col .schedule-container{
+        position: relative;
+        width: 100%;
+        padding-left: 0 !important;
+    }
+
+    .footer-container .contact-container .footer-col .schedule-container div{
+        width: 100%;
+    }
+
+    .footer-container .contact-container .footer-col .schedule-container div{
+        align-items: center;
+    }
+    
+    .footer-container .contact-container .footer-col .schedule-container .float-box-ii{
+        display: block;
+    }
+}
+
+@media (width < 800px) {
+      
+    .footer-container .contact-container .footer-col .contact-title p{
+        width: 100%;
+    }
+
+    .footer-container .contact-container .footer-col .schedule-container .float-box{
+        left: -5%;
+        top: -5%;
+    }
+
+    .footer-container .contact-container .footer-col .schedule-container .float-box-ii{
+        right: -5%;
+        bottom: -5%;
+    }
+}
+
+
+@media (width < 575px) {
+    .final-footer-container .final-footer {
+        flex-direction: column-reverse;
+        row-gap: 1rem;
+    }
+
+    .final-footer-container .final-footer .final-footer-col, .final-footer-col:nth-child(2){
+        align-items: center;
+    }
+
+    .final-footer-container .final-footer .final-footer-col:nth-child(2){
+        align-items: center;
     }
 }

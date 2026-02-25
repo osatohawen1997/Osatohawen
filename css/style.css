@@ -36,12 +36,12 @@ body{
     background: #1ad1ff;
     border-radius: 100%;
     box-shadow: inset 0px 20px 30px #0073df;
-    animation: bounce 2s 0s infinite ease-in-out;
+    animation: bounce 1s 0s infinite ease-in-out;
 }
 
 @keyframes bounce {
     0%{
-        transform: translateY(-20px);
+        transform: translateY(-30px);
     }
 
     25%{
@@ -49,7 +49,7 @@ body{
     }
 
     50%{
-        transform: translateY(-20px);
+        transform: translateY(-30px);
     }
 
     75%{
@@ -57,17 +57,18 @@ body{
     }
 
     100%{
-        transform: translateY(-20px);
+        transform: translateY(-30px);
     }
 }
 
 .container .preloader-container .preloader-shadow{
     width: 60px;
-    height: 10px;
+    height: 8px;
     background: rgba(26, 209, 255, 0.25);
     filter: blur(7px);
     border-radius: 100%;
-    animation: disappear 2s 0s infinite ease-in-out;
+    margin-top: 5px;
+    animation: disappear 1s 0s infinite ease-in-out;
 }
 
 
@@ -75,7 +76,7 @@ body{
 @keyframes disappear {
     0%{
         background: rgba(26, 209, 255, 0.06);
-        width: 10px;
+        width: 8px;
     }
 
     25%{
@@ -85,7 +86,7 @@ body{
 
     50%{
         background: rgba(26, 209, 255, 0.06);
-        width: 10px;
+        width: 8px;
     }
 
     75%{
@@ -95,7 +96,7 @@ body{
 
     100%{
         background: rgba(26, 209, 255, 0.06);
-        width: 10px;
+        width: 8px;
     }
 }
 

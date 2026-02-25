@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- SEO Optimization -->
+     <meta name="description" content="Expert web developer crafting fast, responsive, and scalable websites. 
+    From frontend to backend, turning ideas into seamless digital experiences.">
+
     <!-- FAVICON -->
     <link rel="shortcut icon" href="../images/homepage-image-folder/1765198114796.png" type="image/x-icon">
 

@@ -5,6 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- SEO Optimization -->
+
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="Osatohawen – Web Developer & Graphics Designer">
+    <meta property="og:description" content="I design it. I build it. Custom websites and stunning graphics that get real results.">
+    <meta property="og:image" content="https://osatohawen.com/images/homepage-image-folder/">
+    <meta property="og:url" content="https://osatohawen.com/php/index.php">
+    <meta property="og:type" content="website">
+
     <!-- FAVICON -->
     <link rel="shortcut icon" href="../images/homepage-image-folder/1765198114796.png" type="image/x-icon">
 
@@ -23,7 +33,7 @@
     </div>
 
     <?php
-        Header('refresh: 7; url=../html/homepage.html');
+        Header('refresh: 7; url= homepage.php');
     ?>
 
 </body>

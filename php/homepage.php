@@ -1,3 +1,40 @@
+<?php
+include "../database-connection/connect-db.php";
+
+if(!isset($_COOKIE['user_id'])){
+    $userId = uniqid("user_", true);
+    setcookie("user_id", "$userId", 0, "/");
+}else{
+    $userId = $_COOKIE['user_id'];
+}
+
+$cookieExistPopOut = 0;
+
+$cookiePopOut = 0;
+
+$sqlSelect = "SELECT * FROM `cookies` WHERE `user_id` = ?";
+
+$cookiePrep = mysqli_prepare($connect, $sqlSelect);
+
+$cookieBind =  mysqli_stmt_bind_param($cookiePrep, "s", $userId);
+
+mysqli_stmt_execute($cookiePrep);
+
+if($cookieResult = mysqli_stmt_get_result($cookiePrep)){
+    $cookieNum = mysqli_num_rows($cookieResult) > 0;
+    if(!$cookieNum){
+        $cookieExistPopOut = 1;
+    }else{
+        $cookiePopOut = 1;
+    }
+}else{
+    die(mysqli_error());
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,6 +115,13 @@
         <!-- Hero section -->
 
         <div class="hero-section d-flex justify-content-center align-items-center" id="hero-section">
+
+            <!-- Animated Background -->
+            <div class="background"></div>
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 hero-detail d-flex flex-column gap-3">
                 <span class="hero-title">
                     <h1>Hello, I'm <span>Osatohawen</span></h1>
@@ -542,6 +586,47 @@
 
         </div>
 
+        <?php
+            if($cookieExistPopOut){
+
+                echo"
+                <div class='cookie-container row py-3 px-3' id='cookieModal'>
+                    <span class='cookie-head'>
+                        <b>Cookie Preferences</b>
+                    </span>
+                    <span class='cookie-body'>
+                        <p>To improve experience on the website. Cookies are used for analytics, personalizations and securities.</p>
+                    </span>
+                    <span class='cookie-footer'>
+                        <a href='../function/function.php?cookie=$userId' class='btn'>Accept Cookies</a>
+                        <button type='button' id='cookieClose' class='btn btn-secondary'>Cancel</button>
+                    </span>
+                </div>
+                ";
+
+            }
+
+            if($cookiePopOut){
+
+                echo"
+                <div class='cookie-container row py-3 px-3 d-none' id='cookieModal'>
+                    <span class='cookie-head'>
+                        <b>Cookie Preferences</b>
+                    </span>
+                    <span class='cookie-body'>
+                        <p>To improve experience on the website. Cookies are used for analytics, personalizations and securities.</p>
+                    </span>
+                    <span class='cookie-footer'>
+                        <a href='homepage.php?cookie=$userId' class='btn'>Accept Cookies</a>
+                        <button type='button' id='cookieClose' class='btn btn-secondary'>Cancel</button>
+                    </span>
+                </div>
+                ";
+
+            }
+        ?>
+
+
     </div>
     
 </body>
@@ -641,6 +726,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
 <!-- Custom js -->
- <script src="../javascript/javascript.js"></script>
+<script src="../javascript/javascript.js"></script>
 
 </html>

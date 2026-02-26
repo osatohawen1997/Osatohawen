@@ -135,14 +135,6 @@
     }
 }
 
-@media (max-width: 575.98px) {
-
-    .container-fluid .about-container .hero-image {
-        display: none !important;
-    }
-
-}
-
 /* Services section */
 
 @media (max-width: 991px) {
@@ -305,6 +297,25 @@
     .container-fluid .project-container .projects .sm-project .sm-project-container .project-card{
         width: 90%;
     }
+}
+
+/* Cookies section */
+
+@media (max-width: 767.98px) {
+
+    .container-fluid .cookie-container{
+        width: 70%;
+    }
+}
+
+@media (max-width: 575.98px) {
+
+    .container-fluid .cookie-container{
+        width: 100%;
+        bottom: 0%;
+        right: 3%;
+    }
+    
 }
 
 /* Footer section */

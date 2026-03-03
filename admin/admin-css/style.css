@@ -9,6 +9,12 @@
     --gold-light: #e8c9a0;
     --amber: #b45309;
     --cream: #fef3e2;
+    --alert-success: rgba(0, 128, 0, 0.193);
+    --alert-success-text: rgb(0, 104, 0);
+    --alert-success-border: 1.3px solid rgb(0, 88, 0);
+    --alert-failed: rgba(159, 0, 0, 0.27);
+    --alert-failed-text:rgb(159, 0, 0);
+    --alert-failed-border: 1.3px solid rgb(159, 0, 0);
     
     /* Accent Colors */
     --coral: #e07a5f;
@@ -1126,6 +1132,26 @@ a {
 
 .form-group {
     margin-bottom: 24px;
+}
+
+.alert-success{
+    border: var(--alert-success-border);
+    background: var(--alert-success);
+    color: var(--alert-success-text);
+    text-align: center;
+    margin-bottom: 24px;
+    padding: 10px 0px;
+    border-radius: 7px;
+}
+
+.alert-failed{
+    border: var(--alert-failed-border);
+    background: var(--alert-failed);
+    color: var(--alert-failed-text);
+    text-align: center;
+    margin-bottom: 24px;
+    padding: 10px 0px;
+    border-radius: 7px;
 }
 
 .form-label {

@@ -12,11 +12,13 @@ $cookieExistPopOut = 0;
 
 $cookiePopOut = 0;
 
-$sqlSelect = "SELECT * FROM `cookies` WHERE `user_id` = ?";
+$ip_address = $_SERVER['REMOTE_ADDR'];
+
+$sqlSelect = "SELECT * FROM `cookies` WHERE `ip_address` = ?";
 
 $cookiePrep = mysqli_prepare($connect, $sqlSelect);
 
-$cookieBind =  mysqli_stmt_bind_param($cookiePrep, "s", $userId);
+$cookieBind =  mysqli_stmt_bind_param($cookiePrep, "s", $ip_address);
 
 mysqli_stmt_execute($cookiePrep);
 

@@ -1134,6 +1134,17 @@ a {
     margin-bottom: 24px;
 }
 
+.sub-header{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.sub-header small{
+    margin-bottom: 10px;
+    text-align: center;
+}
+
 .alert-success{
     border: var(--alert-success-border);
     background: var(--alert-success);

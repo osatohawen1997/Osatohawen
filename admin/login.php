@@ -1,9 +1,7 @@
 <?php
 include "../database-connection/connect-db.php";
 
-session_create_id('admin');
-
-session_name('admin');
+session_start();
 
 if(!isset($_COOKIE['admin_id'])){
     $adminId = uniqid("admin_", true);
@@ -64,7 +62,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
                     $adminLoginFetch = mysqli_fetch_assoc($adminLoginResult);
 
-                    $emailVerify = $adminLoginFetch['admin_email'];
+                    $_SESSION['admin_email'] = $adminLoginFetch['admin_email'];
 
                     $passwordVerify = $adminLoginFetch['admin_password'];
 
@@ -72,7 +70,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
                     $passwordUnhash = password_verify($password, $passwordVerify);
 
-                    if($email !== $emailVerify){
+                    if($email !== $_SESSION['admin_email']){
 
                         $EmailPasswordError = 1;
 
@@ -82,7 +80,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
                     }else{
 
-                        if
+                        session_regenerate_id(true);
+
+                        if($adminIp !== $ipVerify){
+                            header("Location: verify.php");
+                        }else{
+                            $loginSuccess = 1;
+                        }
 
                     }
                 }
@@ -97,11 +101,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
             $adminPrep = mysqli_prepare($connect, $adminInsert);
 
-            $adminBind = mysqli_stmt_bind_param($adminPrep, "sss", $email, $passwordHash, $adminIp);
+            $adminBind = mysqli_stmt_bind_param($adminPrep, "sss", $email, $passwordHash, $adminIp);    
 
-            mysqli_stmt_execute($adminPrep);
-
-            if($adminResult = mysqli_stmt_get_result($adminPrep)){
+            if(mysqli_stmt_execute($adminPrep)){
 
                 $adminCreate = 1;
 
@@ -231,7 +233,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     </div>
 
-    <script src="admin-javascript/script.js"></script>
     
 </body>
 </html>

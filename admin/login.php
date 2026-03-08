@@ -82,10 +82,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
                         session_regenerate_id(true);
 
-                        if($adminIp !== $ipVerify){
+                        if($adminIp != $ipVerify){
+                            
                             header("Location: verify.php");
                         }else{
-                            $loginSuccess = 1;
+                            header("Location: dashboard.php");
                         }
 
                     }

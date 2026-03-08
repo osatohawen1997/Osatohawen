@@ -2,9 +2,11 @@
 include "../database-connection/connect-db.php";
 
 if(!isset($_COOKIE['user_id'])){
-    $userId = uniqid("user_", true);
-    setcookie("user_id", "$userId", 0, "/");
+
+    header("Location: index.php");
+
 }else{
+    
     $userId = $_COOKIE['user_id'];
 }
 

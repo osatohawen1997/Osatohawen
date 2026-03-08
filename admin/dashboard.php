@@ -1,3 +1,25 @@
+<?php
+
+include "../database-connection/connect-db.php";
+
+session_start();
+
+if(!isset($_SESSION['admin_email'])){
+
+    header("Location: login.php");
+
+}elseif(!isset($_SESSION['otp'])){
+
+    header("Location: verify.php");
+
+}else{
+    
+    $adminSession = $_SESSION['admin_email'];
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -103,7 +125,7 @@
                     <span class="nav-section-title">Account</span>
                     <ul>
                         <li class="nav-item">
-                            <a href="login.html" class="nav-link">
+                            <a href="logout.php" class="nav-link">
                                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
                                     <polyline points="16 17 21 12 16 7"/>

@@ -1,3 +1,10 @@
+<?php
+
+$userId = uniqid("user_", true);
+setcookie("user_id", "$userId", 0, "/");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

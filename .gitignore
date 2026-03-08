@@ -1,0 +1,17 @@
+# Environment file
+.env
+# Composer packages
+vendor
+
+# Browscap
+browscap.ini
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Composer (if you get it working later)
+composer.lock
+
+browscap-php
+

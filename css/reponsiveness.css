@@ -27,7 +27,8 @@
     }
 
     .container-fluid .navbar-container .navbar .container-fluid .navbar-collapse .collapse-nav{
-        justify-content: center !important;
+        flex-direction: column !important;
+        align-items: center !important;
     }
 
     .container-fluid .navbar-container .navbar .container-fluid .navbar-collapse .collapse-nav ul{
@@ -39,10 +40,6 @@
         border-bottom: .5px solid gainsboro !important;   
     }
 
-    .container-fluid .navbar-container .navbar .container-fluid .navbar-collapse .collapse-nav ul li:nth-child(5){
-        border-bottom: none !important;   
-    }
-
     .container-fluid .navbar-container .navbar .container-fluid .collapse .collapse-nav ul li:hover{
         border-bottom-color: none !important;    
     }
@@ -52,9 +49,6 @@
         width: 100% !important;
     }
 
-    .container-fluid .navbar-container .navbar .container-fluid .navbar-collapse .collapse-nav span{
-        display: none;
-    }
 }
 
 /* Hero section */

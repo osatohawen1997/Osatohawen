@@ -1,43 +1,22 @@
 <?php
 include "../database-connection/connect-db.php";
 
+require_once '../vendor/autoload.php';
+require_once 'user-mail.php';
+
 if(!isset($_COOKIE['user_id'])){
 
-    header("Location: index.php");
+    $userId = uniqid("user_", true);
+    setcookie("user_id", "$userId", 0, "/");
 
 }else{
     
     $userId = $_COOKIE['user_id'];
 }
 
-$cookieExistPopOut = 0;
-
-$cookiePopOut = 0;
-
-$ip_address = $_SERVER['REMOTE_ADDR'];
-
-$sqlSelect = "SELECT * FROM `cookies` WHERE `ip_address` = ?";
-
-$cookiePrep = mysqli_prepare($connect, $sqlSelect);
-
-$cookieBind =  mysqli_stmt_bind_param($cookiePrep, "s", $ip_address);
-
-mysqli_stmt_execute($cookiePrep);
-
-if($cookieResult = mysqli_stmt_get_result($cookiePrep)){
-    $cookieNum = mysqli_num_rows($cookieResult) > 0;
-    if(!$cookieNum){
-        $cookieExistPopOut = 1;
-    }else{
-        $cookiePopOut = 1;
-    }
-}else{
-    die(mysqli_error());
-}
+include "cookie-check.php";
 
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -106,7 +85,10 @@ if($cookieResult = mysqli_stmt_get_result($cookiePrep)){
                             </ul>
     
                             <span class="hire-btn">
-                                <button class="btn btn-sm btn-info text-light rounded-pill"><i class="fa-regular fa-share-from-square"></i> Hire Me</i></button>
+                                <button class="btn btn-sm text-light rounded-pill"><i class="fa-regular fa-share-from-square"></i> Hire Me</i></button>
+                                <a href="../admin/login.php" class="btn btn-secondary rounded-pill">
+                                    <i class="fa-solid fa-user"></i> Admin
+                                </a>
                             </span>
                         </div>
 
@@ -621,11 +603,84 @@ if($cookieResult = mysqli_stmt_get_result($cookiePrep)){
                         <p>To improve experience on the website. Cookies are used for analytics, personalizations and securities.</p>
                     </span>
                     <span class='cookie-footer'>
-                        <a href='homepage.php?cookie=$userId' class='btn'>Accept Cookies</a>
+                        <a href='../function/function.php?cookie=$userId' class='btn'>Accept Cookies</a>
                         <button type='button' id='cookieClose' class='btn btn-secondary'>Cancel</button>
                     </span>
                 </div>
                 ";
+
+            }
+        
+        ?>
+
+        <?php
+
+            include_once "user-mail.php";
+            include_once "encrypt.php";
+
+            if(isset($_POST['send'])){
+                
+                $receipent = "idahosavictor925@gmail.com";
+                
+                $fullName = filter_input(INPUT_POST, 'fullname', FILTER_SANITIZE_SPECIAL_CHARS);
+
+                $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_SPECIAL_CHARS);
+
+                $message = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_SPECIAL_CHARS);
+
+                // Encrypting Data
+
+                $iv = openssl_random_pseudo_bytes(16);
+
+                $encryptEmail = encryptData($email, $key);
+
+                $encryptMsg = encryptData($message, $key);
+
+                $uniqueIdSuccess = uniqid("msg_", true);
+
+                $uniqueIdFailed = uniqid("msgFail", true);
+
+                // Sending Mail
+                
+                $mail   = new Mail();
+
+                $result = $mail->send(
+                    $receipent,
+                    'Incoming Notification',
+                    "<h1 style='color: #2093ff;'>New Message</h1>
+                    <p style='font-size: 1.1rem;'>You have a new message from $email, click the button below to view message.</p> <br>
+                    <a href='https://osatohawen.com/admin/login.php' style='text-decoration:none; text-align: center; font-size: 1.1rem; padding: 8px 18px; background: #2093ff; color: #ffff; border-radius: 5px;'>Click to view</a>"
+                );
+                
+                
+                if ($result['success']) {
+
+                    
+                    $insertMsg = "INSERT INTO `message` (`full_name`, `email`, `message`, `message_id`) VALUES (?, ?, ?, ?)";
+                    
+                    $insertPrep = mysqli_prepare($connect, $insertMsg);
+                    
+                    $insertBind = mysqli_stmt_bind_param($insertPrep, "ssss", $fullName, $encryptEmail, $encryptMsg, $uniqueIdSuccess);
+                    
+                    mysqli_stmt_execute($insertPrep);
+
+                    echo"
+                        <span class='message-container row py-3 px-3 alert alert-success'>
+                            Message sent successfully.
+                        </span>
+                    ";
+                    
+                }else{
+
+                    $msgFailed  = 1;
+
+                    echo"
+                        <span class='message-container row py-3 px-3 alert alert-danger'>
+                            Message was not sent, Try again.
+                        </span>
+                    ";
+                }
+                
 
             }
         ?>
@@ -654,12 +709,12 @@ if($cookieResult = mysqli_stmt_get_result($cookiePrep)){
                     <h3>Contact <span>Me</span></h3>
                     <p>Feel free to contact me for jobs and collaboration, i'll get back as soon as i can.</p>
                 </span>
-                <form action="" method="post">
-                    <input type="text" name="fullname" placeholder="Full Name" class="form-control form-control-sm" autocomplete="off">
+                <form method="POST">
+                    <input type="text" name="fullname" placeholder="Full Name" class="form-control form-control-sm" autocomplete="off" required>
 
-                    <input type="email" name="email" placeholder="Email Address" class="form-control form-control-sm" autocomplete="off">
+                    <input type="email" name="email" placeholder="Email Address" class="form-control form-control-sm" autocomplete="off" required>
 
-                    <textarea name="message" placeholder="Type your message" rows="10" class="form-control"></textarea>
+                    <textarea name="message" placeholder="Type your message" rows="10" class="form-control" required></textarea>
 
                     <button type="submit" name="send" class="btn"><i class="fa-regular fa-paper-plane"></i> Send</button>
                 </form>
@@ -689,7 +744,10 @@ if($cookieResult = mysqli_stmt_get_result($cookiePrep)){
                     <small>Developed by OZ_DEV</small>
                 </span>
                 <span>
-                    <small>&COPY;2026. All rights reserved.</small>
+                    <small>&COPY;
+                    <?php
+                        echo date("Y");
+                    ?>. All rights reserved.</small>
                 </span>
             </div>
             <div class="col-xl-7 col-lg-7 col-sm-7 final-footer-col">

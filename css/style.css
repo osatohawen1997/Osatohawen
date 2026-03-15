@@ -493,6 +493,27 @@ body{
     color: #ffffff;
 }
 
+/* Message popout */
+
+.container-fluid .message-container{
+    position: fixed;
+    bottom: 1%;
+    right: 1%;
+    z-index: +200;
+    animation: msgSlideOut 4s 30s ease forwards;
+    transform: translateX(-3%);
+}
+
+@keyframes msgSlideOut {
+    from{
+        transform: translateX(-3%);
+    }
+
+    to{
+        transform: translateX(105%);
+    }
+}
+
 /* Footer section */
 
 .footer-container{

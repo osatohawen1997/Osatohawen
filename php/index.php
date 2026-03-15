@@ -1,7 +1,6 @@
 <?php
 
-$userId = uniqid("user_", true);
-setcookie("user_id", "$userId", 0, "/");
+
 
 ?>
 

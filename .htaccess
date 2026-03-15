@@ -1,0 +1,14 @@
+<Files ".env">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "decrypt.php">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "encrypt.php">
+    Order allow,deny
+    Deny from all
+</Files>

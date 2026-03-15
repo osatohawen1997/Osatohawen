@@ -1,8 +1,3 @@
-/* ============================================
-   TemplateMo 3D Glassmorphism Dashboard
-   https://templatemo.com
-   JavaScript
-============================================ */
 
 (function() {
     'use strict';

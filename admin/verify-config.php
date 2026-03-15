@@ -55,6 +55,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 }else{
 
                     header("Location: dashboard.php");
+                    $otpDelete = "DELETE FROM `otp_code` WHERE `email` = ?";
+    
+                    $checkOtpDelete = mysqli_prepare($connect, $otpDelete);
+            
+                    $checkOtpDeleteBind = mysqli_stmt_bind_param($checkOtpDelete, "s", $adminSession);
+                        
+                    mysqli_stmt_execute($checkOtpDelete);
                 
                 }
             }

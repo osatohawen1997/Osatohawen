@@ -13,5 +13,5 @@ Thumbs.db
 # Composer (if you get it working later)
 composer.lock
 
-browscap-php
-
+/cache/
+!/cache/.gitkeep

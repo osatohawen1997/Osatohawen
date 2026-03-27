@@ -12,3 +12,13 @@
     Order allow,deny
     Deny from all
 </Files>
+
+<Files "side-bar.php">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "project-upload.php">
+    Order allow,deny
+    Deny from all
+</Files>

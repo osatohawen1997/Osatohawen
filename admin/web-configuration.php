@@ -61,40 +61,53 @@ if(!isset($_SESSION['admin_email'])){
             <!-- Top Navbar -->
             <nav class="navbar">
                 <div class="page-header">
-                    <h1 class="page-title">Notification</h1>
+                    <h1 class="page-title">Web Configuration</h1>
                     <div class="page-breadcrumb">
-                        <a href="dasboard.php">Dashboard</a>
+                        <a href="dashboard.php">Dashboard</a>
                         <span>/</span>
-                        <span>Notification</span>
+                        <span>Web configuration</span>
                     </div>
                 </div>
                
             </nav>
 
+            
+
             <!-- Notification Cards -->
+            <section style="width: 100%; margin-bottom: 20px;">
+                <div class="glass-card stat-card">
+                    <div class="notification-container">
+
+                        <h3>Intro Section</h3>
+
+                        <hr>
+
+                        <?php
+                            include_once "project-upload.php";
+                        
+                            configInput();
+                        ?>
+                        
+                    </div>
+                </div>
+
+                
+            </section>
+
             <section style="width: 100%;">
                 <div class="glass-card stat-card">
-                    <div class="message-count">
-                        <div class="stat-icon cyan">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--emerald-light)" stroke-width="2">
-                                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-                                <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-                            </svg>
-                        </div>
-
-                        <div class="stat-info">
-                            <h3>Message(s):</h3>
-                            <?php
-                                notificationMsg();
-                            ?>
-                        </div>
-                       
-                    </div>
-
                     <div class="notification-container">
+
+                        <h3>Social Links</h3>
+
+                        <hr>
+
                         <?php
-                            totalMsg();
+                            include_once "project-upload.php";
+                        
+                            configInputSocial();
                         ?>
+                        
                     </div>
                 </div>
 

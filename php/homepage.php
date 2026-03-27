@@ -297,7 +297,7 @@ include "cookie-check.php";
 
         <!-- Project section -->
         
-        <div class="project-container row m-0 pt-5 pb-5 justify-content-around" id="project">
+        <div class="project-container project-container-i row m-0 pt-5 pb-5 justify-content-around" id="project">
             <h2 class="text-center project-head mb-5">Projects</h2>
 
             
@@ -318,216 +318,22 @@ include "cookie-check.php";
                         <button type="button" class="btn project-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-regular fa-eye"></i> View Projects</button>
 
                     </div>
-                </div>
-
-                <!--Web development Modal -->
-                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog  modal-dialog-centered  modal-xl modal-lg modal-sm">
-                        <div class="modal-content">
-                            <div class="modal-header d-flex justify-content-center">
-                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Website Projects</h1>
-                            </div>
-                            <div class="modal-body scrollable">
-                                ...
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <!--Web development Modal -->
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog  modal-dialog-centered  modal-xl modal-lg modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header d-flex justify-content-center">
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Website Projects</h1>
+                                </div>
+                                <div class="modal-body scrollable">
+                                    hello
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Project section for Tablet and Mobile mode -->
-
-                <div class="col-md-12 col-sm-12 sm-project mb-4 pb-5">
-
-                    
-                    <h2 class="text-center mb-4">Websites</h2>
-
-                    <div class="sm-project-container d-flex justify-content-evenly align-items-center">
-
-                        <div class="project-card">
-                            <div class="image-box">
-                                <img src="../images/website-snippet-folder/website-image.png" alt="">
-                            </div>
-                            <div class="project-title">
-                                <p>Website</p>
-                            </div>
-                            <div class="title">
-                                <a href="#" target="_blank" class="btn">
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
-    
-                        <div class="project-card">
-                            <div class="image-box">
-                                <img src="../images/website-snippet-folder/website-image.png" alt="">
-                            </div>
-                            <div class="project-title">
-                                <p>Website</p>
-                            </div>
-                            <div class="title">
-                                <a href="#" target="_blank" class="btn">
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
-    
-                        <div class="project-card">
-                            <div class="image-box">
-                                <img src="../images/website-snippet-folder/website-image.png" alt="">
-                            </div>
-                            <div class="project-title">
-                                <p>Website</p>
-                            </div>
-                            <div class="title">
-                                <a href="#" target="_blank" class="btn">
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
-    
-                        <div class="project-card">
-                            <div class="image-box">
-                                <img src="../images/website-snippet-folder/website-image.png" alt="">
-                            </div>
-                            <div class="project-title">
-                                <p>Website</p>
-                            </div>
-                            <div class="title">
-                                <a href="#" target="_blank" class="btn">
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
-    
-                        <div class="project-card">
-                            <div class="image-box">
-                                <img src="../images/website-snippet-folder/website-image.png" alt="">
-                            </div>
-                            <div class="project-title">
-                                <p>Website</p>
-                            </div>
-                            <div class="title">
-                                <a href="#" target="_blank" class="btn">
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
-    
-                        <div class="project-card">
-                            <div class="image-box">
-                                <img src="../images/website-snippet-folder/website-image.png" alt="">
-                            </div>
-                            <div class="project-title">
-                                <p>Website</p>
-                            </div>
-                            <div class="title">
-                                <a href="#" target="_blank" class="btn">
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                        
-                    </div>
-
-                </div>
-
-
-                <div class="col-md-12 col-sm-12 sm-project">
-
-                    <h2 class="text-center mb-4">Graphics Designs</h2>
-
-                    <!-- Project section for Tablet and Mobile mode -->
-                    <div class="sm-project-container d-flex justify-content-around align-items-center">
-
-                        <div class="project-card">
-                            <div class="image-box">
-                                <img src="../images/graphics-design-folder/graphics-image.png" alt="">
-                            </div>
-                            <div class="project-title">
-                                <p>Website</p>
-                            </div>
-                            <div class="title">
-                                <a href="#" target="_blank" class="btn">
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
-    
-                        <div class="project-card">
-                            <div class="image-box">
-                                <img src="../images/graphics-design-folder/graphics-image.png" alt="">
-                            </div>
-                            <div class="project-title">
-                                <p>Website</p>
-                            </div>
-                            <div class="title">
-                                <a href="#" target="_blank" class="btn">
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
-    
-                        <div class="project-card">
-                            <div class="image-box">
-                                <img src="../images/graphics-design-folder/graphics-image.png" alt="">
-                            </div>
-                            <div class="project-title">
-                                <p>Website</p>
-                            </div>
-                            <div class="title">
-                                <a href="#" target="_blank" class="btn">
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
-    
-                        <div class="project-card">
-                            <div class="image-box">
-                                <img src="../images/graphics-design-folder/graphics-image.png" alt="">
-                            </div>
-                            <div class="project-title">
-                                <p>Website</p>
-                            </div>
-                            <div class="title">
-                                <a href="#" target="_blank" class="btn">
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
-    
-                        <div class="project-card">
-                            <div class="image-box">
-                                <img src="../images/graphics-design-folder/graphics-image.png" alt="">
-                            </div>
-                            <div class="project-title">
-                                <p>Website</p>
-                            </div>
-                            <div class="title">
-                                <a href="#" target="_blank" class="btn">
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
-    
-                        <div class="project-card">
-                            <div class="image-box">
-                                <img src="../images/graphics-design-folder/graphics-image.png" alt="">
-                            </div>
-                            <div class="project-title">
-                                <p>Website</p>
-                            </div>
-                            <div class="title">
-                                <a href="#" target="_blank" class="btn">
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
-
-                    </div>
-
                 </div>
 
             </div>
@@ -549,29 +355,225 @@ include "cookie-check.php";
                         <button type="button" class="btn project-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-regular fa-eye"></i> View Projects</button>
 
                     </div>
-                </div>
-
-                <!-- Graphics design Modal -->
-                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog  modal-dialog-centered  modal-xl modal-lg modal-sm">
-                        <div class="modal-content">
-                            <div class="modal-header d-flex justify-content-center">
-                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Graphics Design Projects</h1>
-                            </div>
-                            <div class="modal-body scrollable">
-                                ...
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    
+                    <!-- Graphics design Modal -->
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog  modal-dialog-centered  modal-xl modal-lg modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header d-flex justify-content-center">
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Graphics Design Projects</h1>
+                                </div>
+                                <div class="modal-body scrollable">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
+
             </div>
 
         </div>
 
+        <div class="project-container row m-0 pt-5 pb-5 justify-content-around" id="project">
+            <!-- Project section for Tablet and Mobile mode -->
+
+            <div class="col-md-12 col-sm-12 sm-project mb-4 pb-5">
+
+                    
+                <h2 class="text-center mb-4">Websites</h2>
+
+                <div class="sm-project-container d-flex justify-content-evenly align-items-center">
+
+                    <div class="project-card">
+                        <div class="image-box">
+                            <img src="../images/website-snippet-folder/website-image.png" alt="">
+                        </div>
+                        <div class="project-title">
+                            <p>Website</p>
+                        </div>
+                        <div class="title">
+                            <a href="#" target="_blank" class="btn">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+    
+                    <div class="project-card">
+                        <div class="image-box">
+                            <img src="../images/website-snippet-folder/website-image.png" alt="">
+                        </div>
+                        <div class="project-title">
+                            <p>Website</p>
+                        </div>
+                        <div class="title">
+                            <a href="#" target="_blank" class="btn">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+    
+                    <div class="project-card">
+                        <div class="image-box">
+                            <img src="../images/website-snippet-folder/website-image.png" alt="">
+                        </div>
+                        <div class="project-title">
+                            <p>Website</p>
+                        </div>
+                        <div class="title">
+                            <a href="#" target="_blank" class="btn">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+    
+                    <div class="project-card">
+                        <div class="image-box">
+                            <img src="../images/website-snippet-folder/website-image.png" alt="">
+                        </div>
+                        <div class="project-title">
+                            <p>Website</p>
+                        </div>
+                        <div class="title">
+                            <a href="#" target="_blank" class="btn">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="image-box">
+                            <img src="../images/website-snippet-folder/website-image.png" alt="">
+                        </div>
+                        <div class="project-title">
+                            <p>Website</p>
+                        </div>
+                        <div class="title">
+                            <a href="#" target="_blank" class="btn">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="image-box">
+                            <img src="../images/website-snippet-folder/website-image.png" alt="">
+                        </div>
+                        <div class="project-title">
+                            <p>Website</p>
+                        </div>
+                        <div class="title">
+                            <a href="#" target="_blank" class="btn">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                        
+                </div>
+
+            </div>
+
+
+            <div class="col-md-12 col-sm-12 sm-project">
+
+                <h2 class="text-center mb-4">Graphics Designs</h2>
+
+                <!-- Project section for Tablet and Mobile mode -->
+                <div class="sm-project-container d-flex justify-content-around align-items-center">
+                    
+                    <div class="project-card">
+                        <div class="image-box">
+                            <img src="../images/graphics-design-folder/graphics-image.png" alt="">
+                        </div>
+                        <div class="project-title">
+                            <p>Website</p>
+                        </div>
+                        <div class="title">
+                            <a href="#" target="_blank" class="btn">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="image-box">
+                            <img src="../images/graphics-design-folder/graphics-image.png" alt="">
+                        </div>
+                        <div class="project-title">
+                            <p>Website</p>
+                        </div>
+                        <div class="title">
+                            <a href="#" target="_blank" class="btn">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="image-box">
+                            <img src="../images/graphics-design-folder/graphics-image.png" alt="">
+                        </div>
+                        <div class="project-title">
+                            <p>Website</p>
+                        </div>
+                        <div class="title">
+                            <a href="#" target="_blank" class="btn">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+    
+                    <div class="project-card">
+                        <div class="image-box">
+                            <img src="../images/graphics-design-folder/graphics-image.png" alt="">
+                        </div>
+                        <div class="project-title">
+                            <p>Website</p>
+                        </div>
+                        <div class="title">
+                            <a href="#" target="_blank" class="btn">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+    
+                    <div class="project-card">
+                        <div class="image-box">
+                            <img src="../images/graphics-design-folder/graphics-image.png" alt="">
+                        </div>
+                        <div class="project-title">
+                            <p>Website</p>
+                        </div>
+                        <div class="title">
+                            <a href="#" target="_blank" class="btn">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+    
+                    <div class="project-card">
+                        <div class="image-box">
+                            <img src="../images/graphics-design-folder/graphics-image.png" alt="">
+                        </div>
+                        <div class="project-title">
+                            <p>Website</p>
+                        </div>
+                        <div class="title">
+                            <a href="#" target="_blank" class="btn">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+            
         <?php
             if($cookieExistPopOut){
 
@@ -632,6 +634,8 @@ include "cookie-check.php";
 
                 $iv = openssl_random_pseudo_bytes(16);
 
+                $encryptFullName = encryptData($fullName, $key);
+
                 $encryptEmail = encryptData($email, $key);
 
                 $encryptMsg = encryptData($message, $key);
@@ -660,7 +664,7 @@ include "cookie-check.php";
                     
                     $insertPrep = mysqli_prepare($connect, $insertMsg);
                     
-                    $insertBind = mysqli_stmt_bind_param($insertPrep, "ssss", $fullName, $encryptEmail, $encryptMsg, $uniqueIdSuccess);
+                    $insertBind = mysqli_stmt_bind_param($insertPrep, "ssss", $encryptFullName, $encryptEmail, $encryptMsg, $uniqueIdSuccess);
                     
                     mysqli_stmt_execute($insertPrep);
 

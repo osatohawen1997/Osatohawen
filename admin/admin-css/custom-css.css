@@ -41,3 +41,21 @@
     display: flex;
     column-gap: 10px;
 }
+
+/* Web/Graphics Project */
+
+.dashboard .main-content .add-btn{
+    display: flex;
+    justify-content: end;
+}
+
+.dashboard .main-content .add-btn a{
+    display: flex;
+    align-items: center;
+    background: grey;
+    padding: 8px 16px;
+    justify-content: center;
+    border-radius: 7px;
+    width: fit-content;
+    margin-bottom: 15px;
+}

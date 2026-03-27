@@ -1,6 +1,7 @@
 <?php
 include "../database-connection/connect-db.php";
 
+
 session_start();
 
 if(!isset($_SESSION['admin_email'])){
@@ -37,20 +38,28 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $otpFetch = mysqli_fetch_assoc($otpSelectResult);
 
             $_SESSION['admin_email'] = $otpFetch['email'];
+
             $otpVerify = $otpFetch['otp'];
+
             $unhashOtp = password_verify($inputOtp, $otpVerify);
+
             $_SESSION['otp'] = $unhashOtp;
+
             $otpExpired = $otpFetch['expiry_time'];
 
             if($now > $otpExpired){
 
+                unset($_SESSION['otp']);
+
                 header("Location: verify.php?otp_expired");
+                exit();
 
             }else{
 
                 if(!$unhashOtp){
 
                     header("Location: verify.php?invalid");
+                    exit();
 
                 }else{
 
@@ -66,10 +75,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 }
             }
 
+        }else{
+            echo"error";
         }
 
 
     }
+}else{
+    header("Location: verify.php");
 }
 
 ?>

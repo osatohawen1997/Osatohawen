@@ -11,7 +11,6 @@ if(!isset($_SESSION['admin_email'])){
     header("Location: ../php/index.php");
 }else{
     $adminSession = $_SESSION['admin_email'];
-
 }
 
 
@@ -86,20 +85,22 @@ include "otp.php";
 
                         if($success){
 
+                            include_once "decrypt.php";
+
                             $verifyId = 1;
     
                             $idSelect = "SELECT `admin_email` FROM `admin_login` WHERE `id` = ?";
     
                             $idPrep = mysqli_prepare($connect, $idSelect);
     
-                            $idBind =mysqli_stmt_bind_param($idPrep, "s", $verifyId);
+                            $idBind = mysqli_stmt_bind_param($idPrep, "s", $verifyId);
     
                             mysqli_stmt_execute($idPrep);
     
                             if($idResult = mysqli_stmt_get_result($idPrep)){
                                 $idFetch = mysqli_fetch_assoc($idResult);
     
-                                $verifyEmail = $idFetch['admin_email'];
+                                $verifyEmail = decryptdata($idFetch['admin_email'], $key);
                                 
                                 echo"
                                     <small>OTP has been sent to $verifyEmail</small>

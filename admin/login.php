@@ -25,12 +25,17 @@ $internalError = 0;
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
+    
+    include_once "../php/encrypt.php";
+    include_once "decrypt.php";
+
     $adminIp = $_SERVER['REMOTE_ADDR'];
 
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
 
+    $emailHash = encryptdata($email, $key);
     $passwordHash =  password_hash($password, PASSWORD_DEFAULT);
 
     $sqlCheck = "SELECT * FROM `admin_login`";
@@ -62,7 +67,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
                     $adminLoginFetch = mysqli_fetch_assoc($adminLoginResult);
 
-                    $_SESSION['admin_email'] = $adminLoginFetch['admin_email'];
+                    $_SESSION['admin_email'] = decryptdata($adminLoginFetch['admin_email'], $key);
 
                     $passwordVerify = $adminLoginFetch['admin_password'];
 
@@ -102,7 +107,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
             $adminPrep = mysqli_prepare($connect, $adminInsert);
 
-            $adminBind = mysqli_stmt_bind_param($adminPrep, "sss", $email, $passwordHash, $adminIp);    
+            $adminBind = mysqli_stmt_bind_param($adminPrep, "sss", $emailHash, $passwordHash, $adminIp);    
 
             if(mysqli_stmt_execute($adminPrep)){
 

@@ -1,6 +1,7 @@
 <?php
 
 $success = 0;
+
 $getOtpBtn = 0;
 
 $incorrectOtp = 0;
@@ -17,7 +18,7 @@ if(isset($_GET['otp_sent'])){
 
     $mail   = new Mail();
     
-    $otp = (string) random_int(1000, 9999);
+    $otp = (string) random_int(100000, 999999);
     
     $expiredTime = date('Y-m-d H:i:s', strtotime('+5 minutes'));
     
@@ -34,7 +35,7 @@ if(isset($_GET['otp_sent'])){
     
     if ($result['success']) {
         $success = 1;
-    
+
         $hashOtp = password_hash($otp, PASSWORD_DEFAULT);
         
         $insertOtp = "INSERT INTO `otp_code` (`email`, `otp`, `created_time`, `expiry_time`) VALUES (?, ?, ?, ?)";
@@ -58,7 +59,7 @@ if(isset($_GET['otp_sent'])){
     $incorrectOtp = 1;
 
 }elseif(isset($_GET['otp_expired'])){
-                        
+        
     $getOtpBtn = 1;
 
     $deleteOtp = "DELETE FROM `otp_code` WHERE `email` = ?";
@@ -69,38 +70,31 @@ if(isset($_GET['otp_sent'])){
                             
     mysqli_stmt_execute($checkDeleteOtpPrep);
 
-    $expiredOtp = 1;    
+    $expiredOtp = 1;
 
 }elseif(isset($_GET['msg_failed'])){
 
-    $resendMsg = 1;
-
     $msgFailed = 1;
+
+    $resendMsg = 1;
     
+    $otpDelete = "DELETE FROM `otp_code` WHERE `email` = ?";
+
+    $checkOtpDelete = mysqli_prepare($connect, $otpDelete);
+
+    $checkOtpDeleteBind = mysqli_stmt_bind_param($checkOtpDelete, "s", $adminSession);
+        
+    mysqli_stmt_execute($checkOtpDelete);
+
 }else{
 
     $getOtpBtn = 1;
 
-    $checkOtp = "SELECT * FROM `otp_code` WHERE `email` = ?";
+    $otpDelete = "DELETE FROM `otp_code` WHERE `email` = ?";
 
-    $checkOtpPrep = mysqli_prepare($connect, $checkOtp);
+    $checkOtpDelete = mysqli_prepare($connect, $otpDelete);
 
-    $checkOtpBind = mysqli_stmt_bind_param($checkOtpPrep, "s", $adminSession);
-
-    mysqli_stmt_execute($checkOtpPrep);
-
-    if($checkOtpResult = mysqli_stmt_get_result($checkOtpPrep)){
-        $checkOtpNum = mysqli_num_rows($checkOtpResult) > 0;
-
-        if($checkOtpNum){
-            $otpDelete = "DELETE FROM `otp_code` WHERE `email` = ?";
-    
-            $checkOtpDelete = mysqli_prepare($connect, $otpDelete);
-    
-            $checkOtpDeleteBind = mysqli_stmt_bind_param($checkOtpDelete, "s", $adminSession);
-                
-            mysqli_stmt_execute($checkOtpDelete);
-        }
-    }
-
+    $checkOtpDeleteBind = mysqli_stmt_bind_param($checkOtpDelete, "s", $adminSession);
+        
+    mysqli_stmt_execute($checkOtpDelete);
 }

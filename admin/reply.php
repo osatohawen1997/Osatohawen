@@ -9,10 +9,12 @@ session_start();
 if(!isset($_SESSION['admin_email'])){
     
     header("Location: login.php");
+    exit();
     
-}elseif(!isset($_SESSION['otp'])){
+}elseif(empty($_SESSION['otp'])){
 
     header("Location: verify.php");
+    exit();
         
 }else{
     
@@ -49,97 +51,9 @@ if(!isset($_SESSION['admin_email'])){
     <div class="dashboard">
         <!-- Sidebar -->
         <aside class="sidebar" id="sidebar">
-            <div class="sidebar-header">
-                <div class="logo">O</div>
-                <span class="logo-text">Osatohawen</span>
-            </div>
-
-            <ul class="nav-menu">
-                <li class="nav-section">
-                    <span class="nav-section-title">Main Menu</span>
-                    <ul>
-                        <li class="nav-item">
-                            <a href="dashboard.php" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="3" y="3" width="7" height="7" rx="1"/>
-                                    <rect x="14" y="3" width="7" height="7" rx="1"/>
-                                    <rect x="3" y="14" width="7" height="7" rx="1"/>
-                                    <rect x="14" y="14" width="7" height="7" rx="1"/>
-                                </svg>
-                                Dashboard
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="notification.php" class="nav-link active">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-                                    <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-                                </svg>
-                                Notification
-                                <span class="nav-badge">1</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="project.php" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                                    <circle cx="9" cy="7" r="4"/>
-                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                                </svg>
-                                Projects
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="tech-stack.php" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                                    <circle cx="9" cy="7" r="4"/>
-                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                                </svg>
-                                Tech Stacks
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="skills.php" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                                    <circle cx="9" cy="7" r="4"/>
-                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                                </svg>
-                                Skills
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="web-configuration.php" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="3"/>
-                                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-                                </svg>
-                                Web Configuration
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="nav-section">
-                    <span class="nav-section-title">Account</span>
-                    <ul>
-                        <li class="nav-item">
-                            <a href="logout.php" class="nav-link">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
-                                    <polyline points="16 17 21 12 16 7"/>
-                                    <line x1="21" y1="12" x2="9" y2="12"/>
-                                </svg>
-                                Logout
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+            <?php
+                include_once "side-bar.php";
+            ?>
         </aside>
 
         <!-- Main Content -->
@@ -157,6 +71,92 @@ if(!isset($_SESSION['admin_email'])){
                
             </nav>
 
+            <?php
+
+                include_once "../php/user-mail.php";
+                include_once "../php/encrypt.php";
+                
+                if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_GET['to'])){
+                    
+                    $id = $_GET['to'];
+                    
+                    $fullName = filter_input(INPUT_POST, 'name',FILTER_SANITIZE_SPECIAL_CHARS);
+                    
+                    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_SPECIAL_CHARS);
+                    
+                    $message = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_SPECIAL_CHARS);
+                    
+                    // Encrypting Data
+                    
+                    $iv = openssl_random_pseudo_bytes(16);
+                    $encryptFullName = encryptData($fullName, $key);
+
+                    $encryptEmail = encryptData($email, $key);
+                    
+                    $encryptMsg = encryptData($message, $key);
+                    
+                    
+                    $msgId = "SELECT * FROM `message` WHERE `message_id` = ?";
+    
+                    $msgIdPrep = mysqli_prepare($connect, $msgId);
+    
+                    $msgIdBind = mysqli_stmt_bind_param($msgIdPrep, "s", $id);
+    
+                    mysqli_stmt_execute($msgIdPrep);
+    
+                    $msgIdResult = mysqli_stmt_get_result($msgIdPrep);
+    
+                    $msgIdFetch = mysqli_fetch_assoc($msgIdResult);
+                    
+                    $messageId = $msgIdFetch['message_id'];
+
+                    // Sending Mail
+                    
+                    $mail   = new Mail();
+
+                    $result = $mail->send(
+                        $email,
+                        'Incoming Notification',
+                        "<h1 style='color: #2093ff;'>New message from Osatohawen</h1>
+                        <p style='font-size: 1rem;'>$message</p> <br> <br> <br>
+                        <a href='https://osatohawen.com/php/index.php' style='text-decoration:none; text-align: center; font-size: 1.1rem; padding: 8px 18px; background: #2093ff; color: #ffff; border-radius: 5px;'>Explore portfolio</a>"
+                    );
+                    
+                    
+                    if ($result['success']) {
+
+                        
+                        $insertMsg = "INSERT INTO `reply_message` (`full_name`, `email`, `message`, `message_id`) VALUES (?, ?, ?, ?)";
+                        
+                        $insertPrep = mysqli_prepare($connect, $insertMsg);
+                        
+                        $insertBind = mysqli_stmt_bind_param($insertPrep, "ssss", $encryptFullName, $encryptEmail, $encryptMsg, $messageId);
+                        
+                        mysqli_stmt_execute($insertPrep);
+
+                        echo"
+                            <script>
+                                alert('Message sent successfully');
+
+                                window.location.href='notification.php';
+                            </script>
+                        ";
+                        
+                    }else{
+
+                        echo"
+                            <script>
+                                alert('Message was not sent, Try again.');
+
+                                window.location.href='notification.php';
+                            </script>
+                        ";
+
+                    }
+                   
+                }
+            ?>
+
             <!-- Notification Cards -->
             <section style="width: 100%;">
                 <div class="glass-card stat-card">
@@ -169,11 +169,11 @@ if(!isset($_SESSION['admin_email'])){
 
                             <div class="form-group">
                                 <label class="form-label" for="message">Message</label>
-                                <textarea class="form-input"  required rows='10' placeholder='Type a message'></textarea>
+                                <textarea class="form-input"  required rows='10' placeholder='Type a message' name="message"></textarea>
                             </div>
 
                             <button type="submit" name="login" class="btn btn-primary">
-                                Sign In
+                                Submit
                                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffff"><path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z"/></svg>
                             </button>
                         </form>

@@ -574,6 +574,7 @@ a {
     height: 26px;
 }
 
+
 /* Sparkline in stat card */
 .stat-sparkline {
     position: absolute;
@@ -931,17 +932,6 @@ a {
     gap: 12px;
 }
 
-.table-avatar {
-    width: 38px;
-    height: 38px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    font-size: 13px;
-}
-
 .table-user-info {
     display: flex;
     flex-direction: column;
@@ -965,43 +955,6 @@ a {
     border-radius: 20px;
     font-size: 12px;
     font-weight: 500;
-}
-
-.status-badge::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-}
-
-.status-badge.completed {
-    background: rgba(16, 185, 129, 0.15);
-    color: var(--success);
-}
-
-.status-badge.completed::before {
-    background: var(--success);
-    box-shadow: 0 0 8px var(--success);
-}
-
-.status-badge.pending {
-    background: rgba(245, 158, 11, 0.15);
-    color: var(--warning);
-}
-
-.status-badge.pending::before {
-    background: var(--warning);
-    box-shadow: 0 0 8px var(--warning);
-}
-
-.status-badge.processing {
-    background: rgba(59, 130, 246, 0.15);
-    color: var(--info);
-}
-
-.status-badge.processing::before {
-    background: var(--info);
-    box-shadow: 0 0 8px var(--info);
 }
 
 .table-amount {

@@ -143,7 +143,7 @@ include "otp.php";
                         echo"
                         
                             <div class='alert-failed'>
-                                Internal error occur while trying to send OTP. Kindly resend OTP.
+                                Network error occur while trying to send OTP. Kindly resend OTP.
                             </div>
                         ";
                     }

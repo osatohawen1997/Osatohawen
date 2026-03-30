@@ -11,19 +11,9 @@ $key = $_ENV['ENCRYPTION_KEY'];
 // Encrypt function
 function decryptData($data, $key) {
 
-    if(empty($data)){
-        return null;
-    }
-
-    $parts = explode(':', $data, 2);
-
-    if(count($parts) !== 2){
-    }
-
-    [$ivEncoded, $encrypted] = $parts;
-
+    [$ivEncoded, $encrypted] = explode(':', $data, 2);
     $iv = base64_decode($ivEncoded);
-
     return openssl_decrypt($encrypted, 'AES-256-CBC', $key, 0, $iv);
 
 }
+?>

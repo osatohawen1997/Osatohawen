@@ -15,6 +15,7 @@ if(!isset($_COOKIE['user_id'])){
 }
 
 include "cookie-check.php";
+include "../function/project-function.php";
 
 ?>
 
@@ -121,24 +122,9 @@ include "cookie-check.php";
                     </p>
                
                     <span class="icon-hero d-flex gap-2">
-                        <a href="" class="btn">
-                            <i class="fa-brands fa-telegram"></i>
-                        </a>
-                        <a href="https://x.com/Justosatohawen1" class="btn" target="_blank">
-                            <i class="fa-brands fa-x-twitter"></i>
-                        </a>
-                        <a href="" class="btn">
-                            <i class="fa-brands fa-discord"></i>
-                        </a>
-                        <a href="https://github.com/osatohawen1997" class="btn">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
-                        <a href="" class="btn">
-                            <i class="fa-solid fa-envelope"></i>
-                        </a>
-                        <a href="" class="btn">
-                            <i class="fa-brands fa-linkedin"></i>
-                        </a>   
+                        <?php
+                            socialLink();
+                        ?>
                     </span>
 
                     <button type class="btn mt-4">Download CV <i class="fa-solid fa-download"></i></button>
@@ -325,9 +311,15 @@ include "cookie-check.php";
                                 <div class="modal-header d-flex justify-content-center">
                                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Website Projects</h1>
                                 </div>
-                                <div class="modal-body scrollable">
-                                    hello
+
+                                <!-- Project -->
+                                
+                                <div class="project-wrapper">
+
+                                    
+
                                 </div>
+
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 </div>
@@ -352,19 +344,21 @@ include "cookie-check.php";
                     <div class="card-body d-flex justify-content-center">
 
                         <!-- Bootstrap button modal -->
-                        <button type="button" class="btn project-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-regular fa-eye"></i> View Projects</button>
+                        <button type="button" class="btn project-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-regular fa-eye"></i> View Projects</button>
 
                     </div>
                     
                     <!-- Graphics design Modal -->
-                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog  modal-dialog-centered  modal-xl modal-lg modal-sm">
                             <div class="modal-content">
                                 <div class="modal-header d-flex justify-content-center">
                                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Graphics Design Projects</h1>
                                 </div>
-                                <div class="modal-body scrollable">
-                                    ...
+                                <div class="modal-body scrollable project-wrapper">
+                                    <?php
+                                        graphicsDesignDesktop();
+                                    ?>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -485,89 +479,9 @@ include "cookie-check.php";
                 <!-- Project section for Tablet and Mobile mode -->
                 <div class="sm-project-container d-flex justify-content-around align-items-center">
                     
-                    <div class="project-card">
-                        <div class="image-box">
-                            <img src="../images/graphics-design-folder/graphics-image.png" alt="">
-                        </div>
-                        <div class="project-title">
-                            <p>Website</p>
-                        </div>
-                        <div class="title">
-                            <a href="#" target="_blank" class="btn">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="image-box">
-                            <img src="../images/graphics-design-folder/graphics-image.png" alt="">
-                        </div>
-                        <div class="project-title">
-                            <p>Website</p>
-                        </div>
-                        <div class="title">
-                            <a href="#" target="_blank" class="btn">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card">
-                        <div class="image-box">
-                            <img src="../images/graphics-design-folder/graphics-image.png" alt="">
-                        </div>
-                        <div class="project-title">
-                            <p>Website</p>
-                        </div>
-                        <div class="title">
-                            <a href="#" target="_blank" class="btn">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-    
-                    <div class="project-card">
-                        <div class="image-box">
-                            <img src="../images/graphics-design-folder/graphics-image.png" alt="">
-                        </div>
-                        <div class="project-title">
-                            <p>Website</p>
-                        </div>
-                        <div class="title">
-                            <a href="#" target="_blank" class="btn">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-    
-                    <div class="project-card">
-                        <div class="image-box">
-                            <img src="../images/graphics-design-folder/graphics-image.png" alt="">
-                        </div>
-                        <div class="project-title">
-                            <p>Website</p>
-                        </div>
-                        <div class="title">
-                            <a href="#" target="_blank" class="btn">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-    
-                    <div class="project-card">
-                        <div class="image-box">
-                            <img src="../images/graphics-design-folder/graphics-image.png" alt="">
-                        </div>
-                        <div class="project-title">
-                            <p>Website</p>
-                        </div>
-                        <div class="title">
-                            <a href="#" target="_blank" class="btn">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
+                    <?php
+                        graphicsDesign();
+                    ?>
 
                 </div>
 
@@ -783,6 +697,10 @@ include "cookie-check.php";
             </div>
         </div>
     </div>
+
+    <!-- BuyMe Coffee Widget -->
+
+    <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="osatohawen" data-description="Support me on Buy me a coffee!" data-message="" data-color="#0073df" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
 </footer>
 
 <!-- Typewriter framework -->

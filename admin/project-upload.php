@@ -484,3 +484,286 @@ if(isset($_POST['update_graphics_name'])){
 }
 
 ?>
+
+<?php
+// Web Configuration For Intro Section
+?>
+
+<?php
+
+// Web Configuration For Social Links
+
+if(isset($_POST['telegram_link'])){
+
+    $telegram = filter_input(INPUT_POST, 'telegram', FILTER_SANITIZE_SPECIAL_CHARS);
+
+    $telegramEncrypt = encryptdata($telegram, $key);
+
+    $sqlTelegram = "SELECT * FROM `social_link`";
+
+    $sqlTelegramPrep = mysqli_prepare($connect, $sqlTelegram);
+
+    mysqli_stmt_execute($sqlTelegramPrep);
+
+    if($sqlTelegramResult = mysqli_stmt_get_result($sqlTelegramPrep)){
+
+        $sqlTelegramNum = mysqli_num_rows($sqlTelegramResult) > 0;
+
+        if($sqlTelegramNum){
+
+            $id = 1;
+
+            $telegramUpdate = "UPDATE `social_link` SET `telegram` = ? WHERE `id` = ?";
+
+            $telegramUpdatePrep = mysqli_prepare($connect, $telegramUpdate);
+
+            $telegramUpdateBind = mysqli_stmt_bind_param($telegramUpdatePrep, "ss", $telegramEncrypt, $id);
+
+            mysqli_stmt_execute($telegramUpdatePrep);
+
+            echo"<p class='alert-success'>Telegram has been updated successfully.</p>";
+
+        }else{
+
+            $telegramInsert = "INSERT INTO `social_link` (`telegram`) VALUES (?)";
+
+            $telegramInsertPrep = mysqli_prepare($connect, $telegramInsert);
+
+            $telegramInsertBind = mysqli_stmt_bind_param($telegramInsertPrep, "s", $telegramEncrypt);
+
+            mysqli_stmt_execute($telegramInsertPrep);
+
+            echo"<p class='alert-success'>Telegram has been saved successfully.</p>";
+
+        }
+    }
+
+}elseif(isset($_POST['twitter_link'])){
+
+    $twitter = filter_input(INPUT_POST, 'twitter', FILTER_SANITIZE_SPECIAL_CHARS);
+
+    $twitterEncrypt = encryptdata($twitter, $key);
+
+    $sqlTwitter = "SELECT * FROM `social_link`";
+
+    $sqlTwitterPrep = mysqli_prepare($connect, $sqlTwitter);
+
+    mysqli_stmt_execute($sqlTwitterPrep);
+
+    if($sqlTwitterResult = mysqli_stmt_get_result($sqlTwitterPrep)){
+
+        $sqlTwitterNum = mysqli_num_rows($sqlTwitterResult) > 0;
+
+        if($sqlTwitterNum){
+
+            $id = 1;
+
+            $twitterUpdate = "UPDATE `social_link` SET `twitter` = ? WHERE `id` = ?";
+
+            $twitterUpdatePrep = mysqli_prepare($connect, $twitterUpdate);
+
+            $twitterUpdateBind = mysqli_stmt_bind_param($twitterUpdatePrep, "ss", $twitterEncrypt, $id);
+
+            mysqli_stmt_execute($twitterUpdatePrep);
+
+            echo"<p class='alert-success'>Twitter has been updated successfully.</p>";
+
+        }else{
+
+            $twitterInsert = "INSERT INTO `social_link` (`twitter`) VALUES (?)";
+
+            $twitterInsertPrep = mysqli_prepare($connect, $twitterInsert);
+
+            $twitterInsertBind = mysqli_stmt_bind_param($twitterInsertPrep, "s", $twitterEncrypt);
+
+            mysqli_stmt_execute($twitterInsertPrep);
+
+            echo"<p class='alert-success'>Twitter has been saved successfully.</p>";
+
+        }
+    }
+
+}elseif(isset($_POST['discord_link'])){
+
+    $discord = filter_input(INPUT_POST, 'discord', FILTER_SANITIZE_SPECIAL_CHARS);
+
+    $discordEncrypt = encryptdata($discord, $key);
+
+    $sqlDiscord = "SELECT * FROM `social_link`";
+
+    $sqlDiscordPrep = mysqli_prepare($connect, $sqlDiscord);
+
+    mysqli_stmt_execute($sqlDiscordPrep);
+
+    if($sqlDiscordResult = mysqli_stmt_get_result($sqlDiscordPrep)){
+
+        $sqlDiscordNum = mysqli_num_rows($sqlDiscordResult) > 0;
+
+        if($sqlDiscordNum){
+
+            $id = 1;
+
+            $discordUpdate = "UPDATE `social_link` SET `discord` = ? WHERE `id` = ?";
+
+            $discordUpdatePrep = mysqli_prepare($connect, $discordUpdate);
+
+            $discordUpdateBind = mysqli_stmt_bind_param($discordUpdatePrep, "ss", $discordEncrypt, $id);
+
+            mysqli_stmt_execute($discordUpdatePrep);
+
+            echo"<p class='alert-success'>Discord has been updated successfully.</p>";
+
+        }else{
+
+            $discordInsert = "INSERT INTO `social_link` (`discord`) VALUES (?)";
+
+            $discordInsertPrep = mysqli_prepare($connect, $discordInsert);
+
+            $discordInsertBind = mysqli_stmt_bind_param($discordInsertPrep, "s", $discordEncrypt);
+
+            mysqli_stmt_execute($discordInsertPrep);
+
+            echo"<p class='alert-success'>Discord has been saved successfully.</p>";
+
+        }
+    }
+
+}elseif(isset($_POST['github_link'])){
+
+    $github = filter_input(INPUT_POST, 'github', FILTER_SANITIZE_SPECIAL_CHARS);
+
+    $githubEncrypt = encryptdata($github, $key);
+
+    $sqlGithub = "SELECT * FROM `social_link`";
+
+    $sqlGithubPrep = mysqli_prepare($connect, $sqlGithub);
+
+    mysqli_stmt_execute($sqlGithubPrep);
+
+    if($sqlGithubResult = mysqli_stmt_get_result($sqlGithubPrep)){
+
+        $sqlGithubNum = mysqli_num_rows($sqlGithubResult) > 0;
+
+        if($sqlGithubNum){
+
+            $id = 1;
+
+            $githubUpdate = "UPDATE `social_link` SET `github` = ? WHERE `id` = ?";
+
+            $githubUpdatePrep = mysqli_prepare($connect, $githubUpdate);
+
+            $githubUpdateBind = mysqli_stmt_bind_param($githubUpdatePrep, "ss", $githubEncrypt, $id);
+
+            mysqli_stmt_execute($githubUpdatePrep);
+
+            echo"<p class='alert-success'>Github has been updated successfully.</p>";
+
+        }else{
+
+            $githubInsert = "INSERT INTO `social_link` (`github`) VALUES (?)";
+
+            $githubInsertPrep = mysqli_prepare($connect, $githubInsert);
+
+            $githubInsertBind = mysqli_stmt_bind_param($githubInsertPrep, "s", $githubEncrypt);
+
+            mysqli_stmt_execute($githubInsertPrep);
+
+            echo"<p class='alert-success'>Github has been saved successfully.</p>";
+
+        }
+    }
+
+}elseif(isset($_POST['email_address'])){
+
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_SPECIAL_CHARS);
+
+    $emailEncrypt = encryptdata($email, $key);
+
+    $sqlEmail = "SELECT * FROM `social_link`";
+
+    $sqlEmailPrep = mysqli_prepare($connect, $sqlEmail);
+
+    mysqli_stmt_execute($sqlEmailPrep);
+
+    if($sqlEmailResult = mysqli_stmt_get_result($sqlEmailPrep)){
+
+        $sqlEmailNum = mysqli_num_rows($sqlEmailResult) > 0;
+
+        if($sqlEmailNum){
+
+            $id = 1;
+
+            $emailUpdate = "UPDATE `social_link` SET `email` = ? WHERE `id` = ?";
+
+            $emailUpdatePrep = mysqli_prepare($connect, $emailUpdate);
+
+            $emailUpdateBind = mysqli_stmt_bind_param($emailUpdatePrep, "ss", $emailEncrypt, $id);
+
+            mysqli_stmt_execute($emailUpdatePrep);
+
+            echo"<p class='alert-success'>Email Address has been updated successfully.</p>";
+
+        }else{
+
+            $emailInsert = "INSERT INTO `social_link` (`email`) VALUES (?)";
+
+            $emailInsertPrep = mysqli_prepare($connect, $emailInsert);
+
+            $emailInsertBind = mysqli_stmt_bind_param($emailInsertPrep, "s", $emailEncrypt);
+
+            mysqli_stmt_execute($emailInsertPrep);
+
+            echo"<p class='alert-success'>Email Address has been saved successfully.</p>";
+
+        }
+    }
+
+}elseif(isset($_POST['linkedin_link'])){
+
+    $linkedin = filter_input(INPUT_POST, 'linkedin', FILTER_SANITIZE_SPECIAL_CHARS);
+
+    $linkedinEncrypt = encryptdata($linkedin, $key);
+
+    $sqlLinkedin = "SELECT * FROM `social_link`";
+
+    $sqlLinkedinPrep = mysqli_prepare($connect, $sqlLinkedin);
+
+    mysqli_stmt_execute($sqlLinkedinPrep);
+
+    if($sqlLinkedinResult = mysqli_stmt_get_result($sqlLinkedinPrep)){
+
+        $sqlLinkedinNum = mysqli_num_rows($sqlLinkedinResult) > 0;
+
+        if($sqlLinkedinNum){
+
+            $id = 1;
+
+            $linkedinUpdate = "UPDATE `social_link` SET `linkedin` = ? WHERE `id` = ?";
+
+            $linkedinUpdatePrep = mysqli_prepare($connect, $linkedinUpdate);
+
+            $linkedinUpdateBind = mysqli_stmt_bind_param($linkedinUpdatePrep, "ss", $linkedinEncrypt, $id);
+
+            mysqli_stmt_execute($linkedinUpdatePrep);
+
+            echo"<p class='alert-success'>Linkedin has been updated successfully.</p>";
+
+        }else{
+
+            $linkedinInsert = "INSERT INTO `social_link` (`linkedin`) VALUES (?)";
+
+            $linkedinInsertPrep = mysqli_prepare($connect, $linkedinInsert);
+
+            $linkedinInsertBind = mysqli_stmt_bind_param($linkedinInsertPrep, "s", $linkedinEncrypt);
+
+            mysqli_stmt_execute($linkedinInsertPrep);
+
+            echo"<p class='alert-success'>Linkedin has been saved successfully.</p>";
+
+        }
+    }
+
+}
+
+
+?>

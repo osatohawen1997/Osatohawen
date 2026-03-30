@@ -19,7 +19,7 @@ if(!isset($_SESSION['admin_email'])){
 }else{
     
     $adminSession = $_SESSION['admin_email'];
-
+    
 }
 
 ?>

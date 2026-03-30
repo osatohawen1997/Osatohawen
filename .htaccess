@@ -8,6 +8,11 @@
     Deny from all
 </Files>
 
+<Files "project-decrypt.php">
+    Order allow,deny
+    Deny from all
+</Files>
+
 <Files "encrypt.php">
     Order allow,deny
     Deny from all

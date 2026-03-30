@@ -973,6 +973,9 @@ function configInput(){
 }
 
 function configInputSocial(){
+
+    include_once "decrypt.php";
+
     global $connect;
     
     $id = 1;
@@ -986,18 +989,24 @@ function configInputSocial(){
     mysqli_stmt_execute($editConfigPrep);
 
     if($editConfigResult = mysqli_stmt_get_result($editConfigPrep)){
+
         $editConfigNum = mysqli_num_rows($editConfigResult) > 0;
 
         if($editConfigNum){
 
             $editConfigFetch = mysqli_fetch_assoc($editConfigResult);
 
-            $editTelegram = $editConfigFetch['telegram'];
-            $editTwitter = $editConfigFetch['twitter'];
-            $editDiscord = $editConfigFetch['Discord'];
-            $editGithub = $editConfigFetch['Discord'];
-            $editEmail = $editConfigFetch['Email'];
-            $editLinkedin = $editConfigFetch['linkedin'];
+            $editTelegram = decryptdata($editConfigFetch['telegram'], $key);
+
+            $editTwitter = decryptdata($editConfigFetch['twitter'], $key);
+
+            $editDiscord = decryptdata($editConfigFetch['discord'], $key);
+
+            $editGithub = decryptdata($editConfigFetch['github'], $key);
+
+            $editEmail = decryptdata($editConfigFetch['email'], $key);
+
+            $editLinkedin = decryptdata($editConfigFetch['linkedin'], $key);
             
             echo"
             
@@ -1040,7 +1049,7 @@ function configInputSocial(){
                         <div style='display: flex; justify-content: space-between; align-items: center;'>
                             <input type='text' name='discord' class='form-input' value='$editDiscord' required style='width: 85%;' autocomplete='off'>
                             
-                            <button type='submit' name='discord' class='btn btn-primary' style='width: 10%;'>Save</button>
+                            <button type='submit' name='discord_link' class='btn btn-primary' style='width: 10%;'>Save</button>
                         </div>
                     </div>
                 </div>
@@ -1085,7 +1094,7 @@ function configInputSocial(){
                         <div style='display: flex; justify-content: space-between; align-items: center;'>
                             <input type='text' name='linkedin' class='form-input' value='$editLinkedin' required style='width: 85%;' autocomplete='off'>
                             
-                            <button type='submit' name='linkein_link' class='btn btn-primary' style='width: 10%;'>Save</button>
+                            <button type='submit' name='linkedin_link' class='btn btn-primary' style='width: 10%;'>Save</button>
                         </div>
                     </div>
                 </div>

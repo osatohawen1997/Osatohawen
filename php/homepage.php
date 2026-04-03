@@ -16,7 +16,6 @@ if(!isset($_COOKIE['user_id'])){
 
 include "cookie-check.php";
 include "../function/project-function.php";
-
 ?>
 
 <!DOCTYPE html>
@@ -111,15 +110,14 @@ include "../function/project-function.php";
 
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 hero-detail d-flex flex-column gap-3">
                 <span class="hero-title">
-                    <h1>Hello, I'm <span>Osatohawen</span></h1>
+                    <h1>Hello, I'm <?php  myName();  ?></h1>
                 </span>
                 <span class="hero-title">
                     <h3>And i'm a <span id="typewriter"></span></h3>
                 </span>
                 <span class="hero-title">
-                    <p>
-                        As a Fullstack Developer and a Graphic Designer, I sit at the intersection of technical precision and visual innovation. I build digital products where the architecture is as robust as the aesthetic is compelling.
-                    </p>
+                    
+                    <?php heroTitle(); ?>
                
                     <span class="icon-hero d-flex gap-2">
                         <?php
@@ -132,7 +130,11 @@ include "../function/project-function.php";
             </div>
             <div class="col-xl-5 col-lg-5 col-md-5 col-sm-8 hero-image p-3">
                 <span class="image-hero-container d-flex justify-content-center p-1 align-items-center box-shadow-4">
-                    <img src="../images/homepage-image-folder/1768173146557.jpg" alt="Osatohawen pfp" class="img-fluid">
+
+                    <?php
+                        heroImage();
+                    ?>
+
                 </span>
             </div>
         </div>
@@ -142,7 +144,9 @@ include "../function/project-function.php";
         <div class="about-container d-flex justify-content-around align-items-center pt-5 pb-5" id="about-section">
             <div class="col-xl-5 col-lg-5 col-md-5 col-sm-8 hero-image p-3">
                 <span class="image-hero-container d-flex justify-content-center p-1 align-items-center box-shadow-4">
-                    <img src="../images/homepage-image-folder/1768173146557.jpg" alt="Osatohawen pfp" class="img-fluid">
+                    <?php
+                        subIntroImage();
+                    ?>
                 </span>
             </div>
             <div class="col-xl-5 col-lg-5 col-md-5 col-sm-8 about-detail d-flex flex-column gap-3">
@@ -150,7 +154,9 @@ include "../function/project-function.php";
                     <h2>About <span>Me</span></h2>
                     <div class="underline"></div>
                 </span>
-                <p>As a dual discipline Web Developer and Graphic Designer, I deliver comprehensive digital experiences designed for performance and aesthetic impact. I transform complex brand narratives into responsive, functional web applications, ensuring a seamless transition from design intent to technical deployment. My focus is on creating cohesive digital ecosystems where clean, optimized code supports intuitive and sophisticated visual design.</p>
+                <?php
+                    subTitle();
+                ?>
             </div>
         </div>
 
@@ -316,7 +322,9 @@ include "../function/project-function.php";
                                 
                                 <div class="project-wrapper">
 
-                                    
+                                    <?php
+                                        websiteDesktop();
+                                    ?>
 
                                 </div>
 
@@ -374,6 +382,7 @@ include "../function/project-function.php";
         </div>
 
         <div class="project-container row m-0 pt-5 pb-5 justify-content-around" id="project">
+
             <!-- Project section for Tablet and Mobile mode -->
 
             <div class="col-md-12 col-sm-12 sm-project mb-4 pb-5">
@@ -383,89 +392,9 @@ include "../function/project-function.php";
 
                 <div class="sm-project-container d-flex justify-content-evenly align-items-center">
 
-                    <div class="project-card">
-                        <div class="image-box">
-                            <img src="../images/website-snippet-folder/website-image.png" alt="">
-                        </div>
-                        <div class="project-title">
-                            <p>Website</p>
-                        </div>
-                        <div class="title">
-                            <a href="#" target="_blank" class="btn">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-    
-                    <div class="project-card">
-                        <div class="image-box">
-                            <img src="../images/website-snippet-folder/website-image.png" alt="">
-                        </div>
-                        <div class="project-title">
-                            <p>Website</p>
-                        </div>
-                        <div class="title">
-                            <a href="#" target="_blank" class="btn">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-    
-                    <div class="project-card">
-                        <div class="image-box">
-                            <img src="../images/website-snippet-folder/website-image.png" alt="">
-                        </div>
-                        <div class="project-title">
-                            <p>Website</p>
-                        </div>
-                        <div class="title">
-                            <a href="#" target="_blank" class="btn">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-    
-                    <div class="project-card">
-                        <div class="image-box">
-                            <img src="../images/website-snippet-folder/website-image.png" alt="">
-                        </div>
-                        <div class="project-title">
-                            <p>Website</p>
-                        </div>
-                        <div class="title">
-                            <a href="#" target="_blank" class="btn">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card">
-                        <div class="image-box">
-                            <img src="../images/website-snippet-folder/website-image.png" alt="">
-                        </div>
-                        <div class="project-title">
-                            <p>Website</p>
-                        </div>
-                        <div class="title">
-                            <a href="#" target="_blank" class="btn">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="image-box">
-                            <img src="../images/website-snippet-folder/website-image.png" alt="">
-                        </div>
-                        <div class="project-title">
-                            <p>Website</p>
-                        </div>
-                        <div class="title">
-                            <a href="#" target="_blank" class="btn">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
+                    <?php
+                        websiteProj();
+                    ?>
                         
                 </div>
 
@@ -674,24 +603,9 @@ include "../function/project-function.php";
                 </span>
                 <span>
                     <small>
-                        <a href="" class="btn">
-                            <i class="fa-brands fa-telegram"></i>
-                        </a>
-                        <a href="https://x.com/Justosatohawen1" class="btn" target="_blank">
-                            <i class="fa-brands fa-x-twitter"></i>
-                        </a>
-                        <a href="" class="btn">
-                            <i class="fa-brands fa-discord"></i>
-                        </a>
-                        <a href="https://github.com/osatohawen1997" class="btn">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
-                        <a href="" class="btn">
-                            <i class="fa-solid fa-envelope"></i>
-                        </a>
-                        <a href="" class="btn">
-                            <i class="fa-brands fa-linkedin"></i>
-                        </a>   
+                        <?php
+                            socialLinkFooter();
+                        ?>
                     </small>
                 </span>
             </div>

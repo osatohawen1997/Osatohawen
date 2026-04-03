@@ -452,6 +452,10 @@ body{
 
 /* Project For Desktop view */
 
+.container-fluid .project-container .projects .card .modal .modal-dialog{
+    max-width: 98%;
+}
+
 .container-fluid .project-container .projects .card .modal .modal-dialog .modal-content .project-wrapper{
     margin: auto;
     padding: 20px;
@@ -463,7 +467,7 @@ body{
 
 .container-fluid .project-container .projects .card .modal .modal-dialog .modal-content .project-wrapper .project-card{
     position: relative;
-    width: 31.8%;
+    width: 31.5%;
     height: 10rem !important;
     overflow-y: hidden;
     overflow-x: hidden;

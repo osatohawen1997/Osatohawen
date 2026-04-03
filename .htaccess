@@ -27,3 +27,8 @@
     Order allow,deny
     Deny from all
 </Files>
+
+<Files "about-function.php">
+    Order allow,deny
+    Deny from all
+</Files>

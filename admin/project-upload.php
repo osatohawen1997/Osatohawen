@@ -487,6 +487,471 @@ if(isset($_POST['update_graphics_name'])){
 
 <?php
 // Web Configuration For Intro Section
+
+if(isset($_POST['intro_name'])){
+
+    $introName = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
+
+    $introNameEncrypt = encryptdata($introName, $key);
+
+    $sqlintroName = "SELECT * FROM `about`";
+
+    $sqlintroNamePrep = mysqli_prepare($connect, $sqlintroName);
+
+    mysqli_stmt_execute($sqlintroNamePrep);
+
+    if($sqlintroNameResult = mysqli_stmt_get_result($sqlintroNamePrep)){
+
+        $sqlintroNameNum = mysqli_num_rows($sqlintroNameResult) > 0;
+
+        if($sqlintroNameNum){
+
+            $id = 1;
+
+            $introNameUpdate = "UPDATE `about` SET `intro-name` = ? WHERE `id` = ?";
+
+            $introNameUpdatePrep = mysqli_prepare($connect, $introNameUpdate);
+
+            $introNameUpdateBind = mysqli_stmt_bind_param($introNameUpdatePrep, "ss", $introNameEncrypt, $id);
+
+            mysqli_stmt_execute($introNameUpdatePrep);
+
+            echo"<p class='alert-success'>Hero Intro Name has been updated successfully.</p>";
+
+        }else{
+
+            $introNameInsert = "INSERT INTO `about` (`intro-name`) VALUES (?)";
+
+            $introNameInsertPrep = mysqli_prepare($connect, $introNameInsert);
+
+            $introNameInsertBind = mysqli_stmt_bind_param($introNameInsertPrep, "s", $introNameEncrypt);
+
+            mysqli_stmt_execute($introNameInsertPrep);
+
+            echo"<p class='alert-success'>Hero Intro Name has been saved successfully.</p>";
+
+        }
+    }
+
+}elseif(isset($_POST['intro_about'])){
+
+    $introAbout = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_SPECIAL_CHARS);
+
+    $introAboutEncrypt = encryptdata($introAbout, $key);
+
+    $sqlintroAbout = "SELECT * FROM `about`";
+
+    $sqlintroAboutPrep = mysqli_prepare($connect, $sqlintroAbout);
+
+    mysqli_stmt_execute($sqlintroAboutPrep);
+
+    if($sqlintroAboutResult = mysqli_stmt_get_result($sqlintroAboutPrep)){
+
+        $sqlintroAboutNum = mysqli_num_rows($sqlintroAboutResult) > 0;
+
+        if($sqlintroAboutNum){
+
+            $id = 1;
+
+            $introAboutUpdate = "UPDATE `about` SET `intro-about` = ? WHERE `id` = ?";
+
+            $introAboutUpdatePrep = mysqli_prepare($connect, $introAboutUpdate);
+
+            $introAboutUpdateBind = mysqli_stmt_bind_param($introAboutUpdatePrep, "ss", $introAboutEncrypt, $id);
+
+            mysqli_stmt_execute($introAboutUpdatePrep);
+
+            echo"<p class='alert-success'>Hero Intro About has been updated successfully.</p>";
+
+        }else{
+
+            $introAboutInsert = "INSERT INTO `about` (`intro-About`) VALUES (?)";
+
+            $introAboutInsertPrep = mysqli_prepare($connect, $introAboutInsert);
+
+            $introAboutInsertBind = mysqli_stmt_bind_param($introAboutInsertPrep, "s", $introAboutEncrypt);
+
+            mysqli_stmt_execute($introAboutInsertPrep);
+
+            echo"<p class='alert-success'>Hero Intro About has been saved successfully.</p>";
+
+        }
+    }
+
+}elseif(isset($_POST['sub_intro_about'])){
+
+    $subIntroAbout = filter_input(INPUT_POST, 'message', FILTER_SANITIZE_SPECIAL_CHARS);
+
+    $subIntroAboutEncrypt = encryptdata($subIntroAbout, $key);
+
+    $sqlsubIntroAbout = "SELECT * FROM `about`";
+
+    $sqlsubIntroAboutPrep = mysqli_prepare($connect, $sqlsubIntroAbout);
+
+    mysqli_stmt_execute($sqlsubIntroAboutPrep);
+
+    if($sqlsubIntroAboutResult = mysqli_stmt_get_result($sqlsubIntroAboutPrep)){
+
+        $sqlsubIntroAboutNum = mysqli_num_rows($sqlsubIntroAboutResult) > 0;
+
+        if($sqlsubIntroAboutNum){
+
+            $id = 1;
+
+            $subIntroAboutUpdate = "UPDATE `about` SET `sub-intro` = ? WHERE `id` = ?";
+
+            $subIntroAboutUpdatePrep = mysqli_prepare($connect, $subIntroAboutUpdate);
+
+            $subIntroAboutUpdateBind = mysqli_stmt_bind_param($subIntroAboutUpdatePrep, "ss", $subIntroAboutEncrypt, $id);
+
+            mysqli_stmt_execute($subIntroAboutUpdatePrep);
+
+            echo"<p class='alert-success'>Sub-Intro About has been updated successfully.</p>";
+
+        }else{
+
+            $subIntroAboutInsert = "INSERT INTO `about` (`sub-intro`) VALUES (?)";
+
+            $subIntroAboutInsertPrep = mysqli_prepare($connect, $subIntroAboutInsert);
+
+            $subIntroAboutInsertBind = mysqli_stmt_bind_param($subIntroAboutInsertPrep, "s", $subIntroAboutEncrypt);
+
+            mysqli_stmt_execute($subIntroAboutInsertPrep);
+
+            echo"<p class='alert-success'>Sub-Intro About has been saved successfully.</p>";
+
+        }
+    }
+
+}elseif(isset($_POST['hero_intro_image'])){
+
+    $id = 1;
+
+    $image_name = $_FILES['hero_image'] ['name'];
+    
+    $allowFormats = ['jpeg', 'jpg', 'png', 'JPEG', 'PNG', 'JPG'];
+
+    $fileExtension = strtolower(pathinfo($image_name, PATHINFO_EXTENSION));
+
+    $maxFileSize = 8 * 1024 * 1024;
+
+    $sqlHero = "SELECT * FROM `about` WHERE `id` = ?";
+
+    $sqlHeroPrep = mysqli_prepare($connect, $sqlHero);
+
+    $sqlHeroBind = mysqli_stmt_bind_param($sqlHeroPrep, "s", $id);
+
+    mysqli_stmt_execute($sqlHeroPrep);
+
+    if($sqlHeroResult = mysqli_stmt_get_result($sqlHeroPrep)){
+
+        $sqlHeroNum = mysqli_num_rows($sqlHeroResult) > 0;
+
+        if($sqlHeroNum){
+
+            $sqlHeroFetch = mysqli_fetch_assoc($sqlHeroResult);
+        
+            $heroImg = $sqlHeroFetch['hero-image'];
+
+            $existImage = __DIR__ . "/../images/homepage-image-folder/" . $heroImg;
+
+            if(!empty($heroImg) && file_exists($existImage) && is_writable($existImage)){
+            
+                if(unlink($existImage)){
+
+                    $image_name = $_FILES['hero_image'] ['name'];
+        
+                    $allowFormats = ['jpeg', 'jpg', 'png', 'JPEG', 'PNG', 'JPG'];
+
+                    $fileExtension = strtolower(pathinfo($image_name, PATHINFO_EXTENSION));
+
+                    $maxFileSize = 8 * 1024 * 1024;
+
+
+                    if(!in_array($fileExtension, $allowFormats)){
+            
+                        echo"<p class='alert-failed'>Invalid image format (Jpeg, Jpg, Png are allowed)</p>";
+
+                    }elseif($_FILES['hero_image'] ['size'] > $maxFileSize){
+                        
+                        // Check file size if its more than 8mb
+
+                        echo"<p class='alert-failed'>Exceeded File Size (8MB).</p>";
+                                                                    
+                    }else{
+
+                        $heroImgUniqId = uniqid('hero_image_' . $fileExtension);
+                        
+                        $uploadTo = __DIR__.'/../images/homepage-image-folder/' . basename($heroImgUniqId);
+
+                        if(move_uploaded_file($_FILES['hero_image']['tmp_name'], $uploadTo)){
+
+                            $sqlUpdate = "UPDATE `about` SET `hero-image` = ? WHERE `id` = ?";
+
+                            $sqlUpdatePrep = mysqli_prepare($connect, $sqlUpdate);
+
+                            $sqlUpdateBind = mysqli_stmt_bind_param($sqlUpdatePrep, "ss", $heroImgUniqId, $id);
+
+                            if(mysqli_stmt_execute($sqlUpdatePrep)){
+
+                                echo"<p class='alert-success'>Hero Image Updated Successfully.</p>";
+                                
+                            }else{
+                                die(mysqli_error($connect));
+                            }
+                            
+                        }
+                    }
+                }
+            
+            }else{
+            
+                if(!in_array($fileExtension, $allowFormats)){
+                
+                    echo"<p class='alert-failed'>Invalid image format (Jpeg, Jpg, Png are allowed)</p>";
+        
+                }elseif($_FILES['hero_image'] ['size'] > $maxFileSize){
+                    
+                    // Check file size if its more than 5mb
+            
+                    echo"<p class='alert-failed'>Exceeded File Size (5MB).</p>";
+                                                                
+                                                                
+                }else{
+
+                    $heroImgUniqId = uniqid('hero_image_' . $fileExtension);
+                    
+                    $uploadTo = __DIR__.'/../images/homepage-image-folder/' . basename($heroImgUniqId);
+            
+                    $sqlUpdate = "UPDATE `about` SET `hero-image` = ? WHERE `id` = ?";
+                    
+                    $sqlUpdatePrep = mysqli_prepare($connect, $sqlUpdate);
+
+                    $sqlUpdateBind = mysqli_stmt_bind_param($sqlUpdatePrep, "ss", $heroImgUniqId, $id);
+            
+                    if(mysqli_stmt_execute($sqlUpdatePrep)){
+
+                        move_uploaded_file($_FILES['hero_image']['tmp_name'], $uploadTo);
+
+                        echo"<p class='alert-success'>Hero Image Added Successfully.</p>";
+
+                    }else{
+
+                        die(mysqli_error($connect));
+
+                    }
+                }
+            
+            }
+
+        }else{
+            
+            if(!in_array($fileExtension, $allowFormats)){
+                
+                echo"<p class='alert-failed'>Invalid image format (Jpeg, Jpg, Png are allowed)</p>";
+        
+            }elseif($_FILES['hero_image'] ['size'] > $maxFileSize){
+                
+                // Check file size if its more than 5mb
+        
+                echo"<p class='alert-failed'>Exceeded File Size (5MB).</p>";
+                                                             
+                                                             
+            }else{
+                $heroImgUniqId = uniqid('hero_image_' . $fileExtension);
+                
+                $uploadTo = __DIR__.'/../images/homepage-image-folder/' . basename($heroImgUniqId);
+        
+                if(move_uploaded_file($_FILES['hero_image']['tmp_name'], $uploadTo)){
+
+                    $heroInsert = "INSERT INTO `about` (`hero-image`) VALUES (?)";
+            
+                    $heroPrep = mysqli_prepare($connect, $heroInsert);
+            
+                    $heroBind = mysqli_stmt_bind_param($heroPrep, "s", $heroImgUniqId);
+            
+                    mysqli_stmt_execute($heroPrep);
+                    
+                    echo"<p class='alert-success'>Hero Image Added Successfully.</p>";
+                    
+                }
+            }
+
+        }
+
+    }else{
+        die(mysqli_error($connect));
+    }
+
+}elseif(isset($_POST['sub_intro_image'])){
+
+    $id = 1;
+
+    $image_name = $_FILES['sub_image']['name'];
+    
+    $allowFormats = ['jpeg', 'jpg', 'png', 'JPEG', 'PNG', 'JPG'];
+
+    $fileExtension = strtolower(pathinfo($image_name, PATHINFO_EXTENSION));
+
+    $maxFileSize = 8 * 1024 * 1024;
+
+    $sqlSubHero = "SELECT * FROM `about` WHERE `id` = ?";
+
+    $sqlSubHeroPrep = mysqli_prepare($connect, $sqlSubHero);
+
+    $sqlSubHeroBind = mysqli_stmt_bind_param($sqlSubHeroPrep, "s", $id);
+
+    mysqli_stmt_execute($sqlSubHeroPrep);
+
+    if($sqlSubHeroResult = mysqli_stmt_get_result($sqlSubHeroPrep)){
+
+        $sqlSubHeroNum = mysqli_num_rows($sqlSubHeroResult) > 0;
+
+        if($sqlSubHeroNum){
+
+            $sqlSubHeroFetch = mysqli_fetch_assoc($sqlSubHeroResult);
+        
+            $subHeroImg = $sqlSubHeroFetch['sub-intro-image'];
+
+            $subExistImage = __DIR__ . "/../images/homepage-image-folder/" . $subHeroImg;
+
+            if(!empty($subHeroImg) && file_exists($subExistImage) && is_writable($subExistImage)){
+            
+                if(unlink($subExistImage)){
+
+                    $image_name = $_FILES['sub_image'] ['name'];
+        
+                    $allowFormats = ['jpeg', 'jpg', 'png', 'JPEG', 'PNG', 'JPG'];
+
+                    $fileExtension = strtolower(pathinfo($image_name, PATHINFO_EXTENSION));
+
+                    $maxFileSize = 8 * 1024 * 1024;
+
+
+                    if(!in_array($fileExtension, $allowFormats)){
+            
+                        echo"<p class='alert-failed'>Invalid image format (Jpeg, Jpg, Png are allowed)</p>";
+
+                    }elseif($_FILES['sub_image'] ['size'] > $maxFileSize){
+                        
+                        // Check file size if its more than 8mb
+
+                        echo"<p class='alert-failed'>Exceeded File Size (8MB).</p>";
+                                                                    
+                    }else{
+
+                        $subHeroImgUniqId = uniqid('sub_image_' . $fileExtension);
+                        
+                        $uploadTo = __DIR__.'/../images/homepage-image-folder/' . basename($subHeroImgUniqId);
+
+                        if(move_uploaded_file($_FILES['sub_image']['tmp_name'], $uploadTo)){
+
+                            $sqlUpdate = "UPDATE `about` SET `sub-intro-image` = ? WHERE `id` = ?";
+
+                            $sqlUpdatePrep = mysqli_prepare($connect, $sqlUpdate);
+
+                            $sqlUpdateBind = mysqli_stmt_bind_param($sqlUpdatePrep, "ss", $subHeroImgUniqId, $id);
+
+                            if(mysqli_stmt_execute($sqlUpdatePrep)){
+
+                                echo"<p class='alert-success'>Sub Intro Image Updated Successfully.</p>";
+                                
+                            }else{
+                                die(mysqli_error($connect));
+                            }
+                            
+                        }
+                    }
+                }
+            
+            }else{
+            
+                if(!in_array($fileExtension, $allowFormats)){
+                
+                    echo"<p class='alert-failed'>Invalid image format (Jpeg, Jpg, Png are allowed)</p>";
+        
+                }elseif($_FILES['sub_image'] ['size'] > $maxFileSize){
+                    
+                    // Check file size if its more than 5mb
+            
+                    echo"<p class='alert-failed'>Exceeded File Size (5MB).</p>";
+                                                                
+                                                                
+                }else{
+
+                    $subHeroImgUniqId = uniqid('sub_image_' . $fileExtension);
+                    
+                    $uploadTo = __DIR__.'/../images/homepage-image-folder/' . basename($subHeroImgUniqId);
+            
+                    $sqlUpdate = "UPDATE `about` SET `sub-intro-image` = ? WHERE `id` = ?";
+                    
+                    $sqlUpdatePrep = mysqli_prepare($connect, $sqlUpdate);
+
+                    $sqlUpdateBind = mysqli_stmt_bind_param($sqlUpdatePrep, "ss", $subHeroImgUniqId, $id);
+            
+                    if(mysqli_stmt_execute($sqlUpdatePrep)){
+
+                        move_uploaded_file($_FILES['sub_image']['tmp_name'], $uploadTo);
+
+                        echo"<p class='alert-success'>Sub Intro Image Added Successfully.</p>";
+
+                    }else{
+
+                        die(mysqli_error($connect));
+
+                    }
+                }
+            
+            }
+
+        }else{
+            
+            if(!in_array($fileExtension, $allowFormats)){
+                
+                echo"<p class='alert-failed'>Invalid image format (Jpeg, Jpg, Png are allowed)</p>";
+        
+            }elseif($_FILES['sub_image'] ['size'] > $maxFileSize){
+                
+                // Check file size if its more than 5mb
+        
+                echo"<p class='alert-failed'>Exceeded File Size (5MB).</p>";
+                                                             
+                                                             
+            }else{
+ 
+                $subHeroImgUniqId = uniqid('sub_image_' . $fileExtension);
+                
+                $subHeroInsert = "INSERT INTO `about` (`sub-intro-image`) VALUES (?)";
+        
+                $subHeroPrep = mysqli_prepare($connect, $subHeroInsert);
+        
+                $subHeroBind = mysqli_stmt_bind_param($subHeroPrep, "s", $subHeroImgUniqId);
+        
+                if(mysqli_stmt_execute($subHeroPrep)){
+
+                    $uploadTo = __DIR__.'/../images/homepage-image-folder/' . basename($subHeroImgUniqId);
+                    
+                    if(move_uploaded_file($_FILES['sub_image']['tmp_name'], $uploadTo)){
+                        
+                        echo"<p class='alert-success'>Sub Intro Image Added Successfully.</p>";
+    
+                    }
+
+                }else{
+                    die(mysqli_error($connect));
+                }
+                
+            }
+
+        }
+
+    }else{
+        die(mysqli_error($connect));
+    }
+
+}
+
+
 ?>
 
 <?php

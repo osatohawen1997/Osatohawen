@@ -771,6 +771,9 @@ function graphicsFormInput(){
 // configuration Section
 
 function configInput(){
+
+    include_once "decrypt.php";
+
     global $connect;
     
     $id = 1;
@@ -790,9 +793,9 @@ function configInput(){
 
             $editConfigFetch = mysqli_fetch_assoc($editConfigResult);
 
-            $editConfigIntroName = $editConfigFetch['intro-name'];
-            $editConfigIntroAbout = $editConfigFetch['intro-about'];
-            $editConfigSubIntro = $editConfigFetch['sub-intro'];
+            $editConfigIntroName = decryptdata($editConfigFetch['intro-name'], $key);
+            $editConfigIntroAbout = decryptdata($editConfigFetch['intro-about'], $key);
+            $editConfigSubIntro = decryptdata($editConfigFetch['sub-intro'], $key);
             $editConfigHeroImg = $editConfigFetch['hero-image'];
             $editConfigSubImage = $editConfigFetch['sub-intro-image'];
             
@@ -853,7 +856,7 @@ function configInput(){
                         <div style='display: flex; justify-content: space-between; align-items: center;'>
                             <div style='width: 85%;'>
                                 <input type='file' name='hero_image' class='form-input' required>
-                                <small>current image: $editConfigImage</small>
+                                <small>current image: $editConfigHeroImg</small>
                             </div>
                         
                             <button type='submit' name='hero_intro_image' class='btn btn-primary' style='width: 10%;'>Save</button>
@@ -870,7 +873,7 @@ function configInput(){
                         <label for='image'>Sub Intro Image</label>
                         <div style='display: flex; justify-content: space-between; align-items: center;'>
                             <div style='width: 85%;'>
-                                <input type='file' name='hero_image' class='form-input' required>
+                                <input type='file' name='sub_image' class='form-input' required>
                                 <small>current image: $editConfigSubImage</small>
                             </div>
                         
@@ -884,6 +887,7 @@ function configInput(){
             ";
 
         }else{
+            
             echo"
             
             <form method='POST'>
@@ -922,18 +926,18 @@ function configInput(){
             
             <form method='POST' enctype='multipart/form-data'>
             
-            <div class='form-group'>
-            <div>
-            <label for='image'>Sub Intro Image</label>
-            <div style='display: flex; justify-content: space-between; align-items: center;'>
-            <div style='width: 85%;'>
-            <input type='file' name='hero_image' class='form-input' required>
-            </div>
-            
-            <button type='submit' name='sub_intro_image' class='btn btn-primary' style='width: 10%;'>Save</button>
-            </div>
-            </div>
-            </div>
+                <div class='form-group'>
+                    <div>
+                        <label for='image'>Sub Intro Image</label>
+                        <div style='display: flex; justify-content: space-between; align-items: center;'>
+                            <div style='width: 85%;'>
+                                <input type='file' name='sub_image' class='form-input' required>
+                            </div>
+                            
+                            <button type='submit' name='sub_intro_image' class='btn btn-primary' style='width: 10%;'>Save</button>
+                        </div>
+                    </div>
+                </div>
             
             </form>
             
@@ -977,6 +981,8 @@ function configInputSocial(){
     include_once "decrypt.php";
 
     global $connect;
+
+    $key = $_ENV['ENCRYPTION_KEY'];
     
     $id = 1;
 

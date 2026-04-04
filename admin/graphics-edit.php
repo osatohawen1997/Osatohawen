@@ -20,6 +20,8 @@ if(!isset($_SESSION['admin_email'])){
     
     $adminSession = $_SESSION['admin_email'];
 
+    require __DIR__ . "/auto-logout.php";
+
 }
 
 ?>

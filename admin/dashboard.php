@@ -6,12 +6,13 @@ include "function.php";
 
 session_start();
 
-if(!isset($_SESSION['admin_email'])){
-    
-    header("Location: login.php");
-    exit();
-    
-}elseif(empty($_SESSION['otp'])){
+// Avoid going back
+
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Pragma: no-cache");
+header("Expires: Sat, 01 Jan 2000 00:00:00 GMT");
+
+if(empty($_SESSION['admin_email']) || empty($_SESSION['otp'])){
 
     header("Location: verify.php");
     exit();
@@ -19,6 +20,8 @@ if(!isset($_SESSION['admin_email'])){
 }else{
     
     $adminSession = $_SESSION['admin_email'];
+
+    require __DIR__ . "/auto-logout.php";
     
 }
 
@@ -38,6 +41,21 @@ if(!isset($_SESSION['admin_email'])){
     <link rel="shortcut icon" href="../images/homepage-image-folder/1765198114796.png" type="image/x-icon">
     
     <title>Osatohawen | Admin Panel</title>
+
+    <script>
+
+        // Avoid going back
+
+        history.pushState(null, null, window.location.href);
+
+        window.addEventListener('popstate', function(){
+
+            // User pressed back — push them forward again
+            history.pushState(null, null, window.location.href);
+            
+        });
+
+    </script>
 </head>
 <body>
     <!-- Animated Background -->

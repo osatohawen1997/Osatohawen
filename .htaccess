@@ -32,3 +32,8 @@
     Order allow,deny
     Deny from all
 </Files>
+
+<Files "auto-logout.php">
+    Order allow,deny
+    Deny from all
+</Files>

@@ -421,7 +421,7 @@ function websiteDesktop(){
                         <p>$websiteName</p>
                     </div>
                     <div class='title'>
-                        <a href='#' target='_blank' class='btn'>
+                        <a href='view.php?wr=$websiteImage' target='_blank' class='btn'>
                             <i class='fa-solid fa-arrow-right'></i>
                         </a>
                     </div>
@@ -477,7 +477,7 @@ function graphicsDesignDesktop(){
                         <p>$graphicsName</p>
                     </div>
                     <div class='title'>
-                        <a href='#' target='_blank' class='btn'>
+                        <a href='view.php?gr=$graphicsImage' target='_blank' class='btn'>
                             <i class='fa-solid fa-arrow-right'></i>
                         </a>
                     </div>
@@ -587,7 +587,7 @@ function graphicsDesign(){
                             <p>$graphicsName</p>
                         </div>
                         <div class='title'>
-                            <a href='#' target='_blank' class='btn'>
+                            <a href='view.php?gr=$graphicsImage' target='_blank' class='btn'>
                                 <i class='fa-solid fa-arrow-right'></i>
                             </a>
                         </div>

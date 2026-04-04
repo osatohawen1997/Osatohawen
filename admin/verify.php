@@ -7,12 +7,27 @@ require_once 'mail.php';
 
 session_start();
 
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Pragma: no-cache");
+header("Expires: Sat, 01 Jan 2000 00:00:00 GMT");
+
 if(!isset($_SESSION['admin_email'])){
-    header("Location: ../php/index.php");
+
+    header("Location: login.php");
+
 }else{
+        
     $adminSession = $_SESSION['admin_email'];
+  
 }
 
+if(!empty($_SESSION['admin_email']) && !empty($_SESSION['otp']) && $_SESSION['otp'] === true){
+        
+    header("Location: dashboard.php");
+    exit;
+
+}
+    
 
 include "otp.php";
 ?>
@@ -34,6 +49,23 @@ include "otp.php";
     <link rel="shortcut icon" href="../images/homepage-image-folder/1765198114796.png" type="image/x-icon">
     
     <title>Osatohawen | Admin Login</title>
+
+    <script>
+
+        // If this page loads while session is active, redirect via JS as backup
+
+        window.addEventListener('pageshow', function(e){
+
+            if(e.persisted){
+
+                // Page was restored from browser cache (bfcache)
+
+                window.location.replace("dashboard.php");
+            }
+
+        });
+        
+    </script>
 </head>
 <body>
     <!-- Animated Background -->

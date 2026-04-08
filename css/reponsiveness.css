@@ -405,3 +405,13 @@
         align-items: center;
     }
 }
+
+/* View Page */
+
+@media (max-width: 757.98px) {
+    .container-fluid .view-row .view-col .view-container{
+
+        width: 100%;
+
+    }
+}

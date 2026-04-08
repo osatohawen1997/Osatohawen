@@ -359,7 +359,7 @@ function socialLinkFooter(){
                 <a href='' class='btn'>
                     <i class='fa-brands fa-telegram'></i>
                 </a>
-                <a href='https://x.com/Justosatohawen1' class='btn' target='_blank'>
+                <a href='' class='btn'>
                     <i class='fa-brands fa-x-twitter'></i>
                 </a>
                 <a href='' class='btn'>
@@ -421,7 +421,7 @@ function websiteDesktop(){
                         <p>$websiteName</p>
                     </div>
                     <div class='title'>
-                        <a href='view.php?wr=$websiteImage' target='_blank' class='btn'>
+                        <a href='view.php?wr=$websiteId' class='btn'>
                             <i class='fa-solid fa-arrow-right'></i>
                         </a>
                     </div>
@@ -477,7 +477,7 @@ function graphicsDesignDesktop(){
                         <p>$graphicsName</p>
                     </div>
                     <div class='title'>
-                        <a href='view.php?gr=$graphicsImage' target='_blank' class='btn'>
+                        <a href='view.php?gr=$graphicsImage' class='btn'>
                             <i class='fa-solid fa-arrow-right'></i>
                         </a>
                     </div>
@@ -536,7 +536,7 @@ function websiteProj(){
                             <p>$websiteName</p>
                         </div>
                         <div class='title'>
-                            <a href='$websiteLink' target='_blank' class='btn'>
+                            <a href='view.php?wr=$websiteId' class='btn'>
                                 <i class='fa-solid fa-arrow-right'></i>
                             </a>
                         </div>
@@ -587,7 +587,7 @@ function graphicsDesign(){
                             <p>$graphicsName</p>
                         </div>
                         <div class='title'>
-                            <a href='view.php?gr=$graphicsImage' target='_blank' class='btn'>
+                            <a href='view.php?gr=$graphicsImage' class='btn'>
                                 <i class='fa-solid fa-arrow-right'></i>
                             </a>
                         </div>

@@ -115,6 +115,51 @@ if(!isset($_SESSION['admin_email'])){
 
                 
             </section>
+
+            <section style="width: 100%; margin-top: 20px;">
+                <div class="glass-card stat-card">
+                    <div class="notification-container">
+
+                        <h3>Change Password</h3>
+
+                        <hr>
+
+                        <?php
+                            include_once "project-upload.php";
+                        ?>
+                        
+                        <form method="POST">
+            
+                            <div class='form-group'>
+                                <div>
+                                    <label for='name'>New Password</label>
+                                    <div>
+                                        <input type='text' name='new_pw' class='form-input' required autocomplete='off'>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class='form-group'>
+                                <div>
+                                    <label for='name'>Confirm New Password</label>
+                                    <div>
+                                        <input type='text' name='c_new_pw' class='form-input' required autocomplete='off'>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class='form-group'>
+                                
+                                <button type='submit' name='update_password' class='btn btn-primary'>Change Password</button>
+
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+                
+            </section>
         </main>
     </div>
 

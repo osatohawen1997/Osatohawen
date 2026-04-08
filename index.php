@@ -16,10 +16,10 @@
     <meta property="og:type" content="website">
 
     <!-- FAVICON -->
-    <link rel="shortcut icon" href="../images/homepage-image-folder/1765198114796.png" type="image/x-icon">
+    <link rel="shortcut icon" href="images/homepage-image-folder/1765198114796.png" type="image/x-icon">
 
     <!-- Custom css -->
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <title>Osatohawen</title>
 </head>
@@ -33,7 +33,7 @@
     </div>
 
     <?php
-        Header('refresh: 7; url= homepage.php');
+        Header('refresh: 7; url= php/homepage.php');
     ?>
 
 </body>

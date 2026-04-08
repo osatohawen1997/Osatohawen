@@ -26,7 +26,7 @@ include "../function/project-function.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO Optimization -->
-     <meta name="description" content="Expert web developer crafting fast, responsive, and scalable websites. 
+    <meta name="description" content="Expert web developer crafting fast, responsive, and scalable websites. 
     From frontend to backend, turning ideas into seamless digital experiences.">
 
     <!-- FAVICON -->
@@ -577,7 +577,7 @@ include "../function/project-function.php";
                         <p> <i class="fa-regular fa-envelope"></i>  Idahosavictor925@gmail.com</p>
                         <p> <i class="fa-regular fas fa-phone"></i>  07039946139</p>
                         <p> <i class="fa-regular far fa-calendar-alt"></i>  Mon - Fri</p>
-                        <p> <i class="fa-regular far fa-clock"></i>  10am - 4pm</p>
+                        <p> <i class="fa-regular far fa-clock"></i>  10am - 5pm</p>
                     </div>
                 </div>
             </div>

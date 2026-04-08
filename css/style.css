@@ -802,3 +802,18 @@ body{
     color: #ffffff;
     border: none;
 }
+
+/* View Page */
+
+.container-fluid .view-row .view-col .view-container{
+    width: 50%;
+}
+
+.container-fluid .view-row .view-col .view-container{
+    border: 1.5px solid #2093FF;
+}
+
+.container-fluid .view-row .view-col .view-container div a{
+    background: #2093FF;
+    color: #ffffff;
+}

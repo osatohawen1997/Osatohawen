@@ -30,6 +30,13 @@ include "../database-connection/connect-db.php";
 <body>
 
     <div class="container-fluid">
+
+        <!-- Animated Background -->
+        <div class="background"></div>
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+
         <div class="row view-row">
             <div class="col-xl-12 col-lg-12 col-sm-12 d-flex justify-content-center align-items-center view-col" style='height: 100vh;'>
 
@@ -59,7 +66,7 @@ include "../database-connection/connect-db.php";
 
                             echo"
                             
-                                <img src='../images/graphics-design-folder/$grDisplay' alt='$grDisplay' class='img-fluid' style='max-height: 400px; max-width:800px;'>
+                                <img src='../images/graphics-design-folder/$grDisplay' alt='$grDisplay' class='img-fluid' style='max-height: 400px; max-width:800px; min-width:200px;'>
 
                             ";
 
@@ -99,14 +106,14 @@ include "../database-connection/connect-db.php";
 
                             $wrFetch = mysqli_fetch_assoc($wrSqlResult);
 
-                            $wrName = decryptdata($wrFetch['name'], $key);
-                            $wrStack = strtoupper(decryptdata($wrFetch['tech_stack'], $key));
-                            $wrDesc = decryptdata($wrFetch['description'], $key);
-                            $wrLink = decryptdata($wrFetch['project_link'], $key);
+                            $wrName = decryptdata(htmlspecialchars($wrFetch['name']), $key);
+                            $wrStack = strtoupper(decryptdata(htmlspecialchars($wrFetch['tech_stack']), $key));
+                            $wrDesc = decryptdata(htmlspecialchars($wrFetch['description']), $key);
+                            $wrLink = decryptdata(htmlspecialchars($wrFetch['project_link']), $key);
 
                             echo"
                             
-                                <div class='p-3 view-container rounded'>
+                                <div class='p-3 view-container rounded bg-dark'>
 
                                     <div class='mb-4 mt-4'>
 
@@ -130,14 +137,14 @@ include "../database-connection/connect-db.php";
 
                                         <span>
                                             <b>Description:</b>
-                                            <span>$wrDesc</span>
+                                            <span style='white-space: pre-wrap;'>$wrDesc</span>
                                         </span>
                                     
                                     </div>
 
                                     <div class='mb-4 mt-5 d-flex justify-content-center'>
 
-                                        <a href='$wrLink' class='btn'>Visit Website</a>
+                                        <a href='$wrLink' target='_blank' class='btn'>Visit Website</a>
                                     
                                     </div>
 

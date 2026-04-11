@@ -153,7 +153,7 @@ body{
     color: #000 !important;
 }
 
-.container-fluid .navbar-container .navbar .container-fluid .collapse .collapse-nav .hire-btn button{
+.container-fluid .navbar-container .navbar .container-fluid .collapse .collapse-nav .hire-btn .hireBtn{
     font-size: 1rem !important;
     background-color: #2093FF;
 }

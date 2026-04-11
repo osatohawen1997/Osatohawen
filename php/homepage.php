@@ -85,7 +85,7 @@ include "../function/project-function.php";
                             </ul>
     
                             <span class="hire-btn">
-                                <button class="btn btn-sm text-light rounded-pill"><i class="fa-regular fa-share-from-square"></i> Hire Me</i></button>
+                                <a href="#contact" class="btn btn-sm text-light hireBtn rounded-pill"><i class="fa-regular fa-share-from-square"></i> Hire Me</i></a>
                                 <a href="../admin/login.php" class="btn btn-secondary rounded-pill">
                                     <i class="fa-solid fa-user"></i> Admin
                                 </a>

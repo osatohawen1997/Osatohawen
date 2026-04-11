@@ -134,7 +134,7 @@ if(!isset($_SESSION['admin_email'])){
                                 <div>
                                     <label for='name'>New Password</label>
                                     <div>
-                                        <input type='text' name='new_pw' class='form-input' required autocomplete='off'>
+                                        <input type='password' name='new_pw' class='form-input' required autocomplete='off'>
                                     </div>
                                 </div>
                             </div>
@@ -143,7 +143,7 @@ if(!isset($_SESSION['admin_email'])){
                                 <div>
                                     <label for='name'>Confirm New Password</label>
                                     <div>
-                                        <input type='text' name='c_new_pw' class='form-input' required autocomplete='off'>
+                                        <input type='password' name='c_new_pw' class='form-input' required autocomplete='off'>
                                     </div>
                                 </div>
                             </div>

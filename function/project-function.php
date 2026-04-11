@@ -142,7 +142,7 @@ function heroImage(){
 
                 echo"
                 
-                    <img src='../images/homepage-image-folder/1768173146557.jpg' alt='Osatohawen pfp' class='img-fluid'>
+                    <img src='../images/homepage-image-folder/1768173146557.jpg' alt='Osatohawen-pfp' class='img-fluid'>
 
                 ";
 

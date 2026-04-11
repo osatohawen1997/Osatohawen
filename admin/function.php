@@ -256,14 +256,14 @@ function totalMsg(){
 
                 $msgFullName = $msgFetch['full_name'];
                 $msgEmail = decryptdata($msgFetch['email'], $key);
-                $msg = decryptdata($msgFetch['message'], $key);
+                $msg = decryptdata(htmlspecialchars($msgFetch['message']), $key);
                 $msgId = $msgFetch['message_id'];
                 $msgDate = $msgFetch['date'];
         
                 
-                if(strlen($msg) > 100){
+                if(strlen($msg) > 1000){
                     
-                    $msgShort = substr($msg, 0, 100)."... see more";
+                    $msgShort = substr($msg, 0, 1000)."... see more";
                     
                     echo"
                         <a href='reply.php?to=$msgId' class='message'>
@@ -273,7 +273,7 @@ function totalMsg(){
                             </div>
                             <div class='message-body'>
                                 <b>Message:</b>
-                                <p>$msgShort</p>
+                                <p style='white-space: pre-wrap;'>$msgShort</p>
                             </div>
                             <div class='message-action'>
                                 <div class='message-date'>
@@ -293,7 +293,7 @@ function totalMsg(){
                             </div>
                             <div class='message-body'>
                                 <b>Message:</b>
-                                <p>$msg</p>
+                                <p style='white-space: pre-wrap;'>$msg</p>
                             </div>
                             <div class='message-action'>
                                 <div class='message-date'>
@@ -1109,6 +1109,7 @@ function configInputSocial(){
             ";
 
         }else{
+
             echo"
             
             <form method='POST'>
@@ -1204,4 +1205,88 @@ function configInputSocial(){
             ";
         }
     }
+}
+
+
+// Change password
+
+function passwordInput(){
+
+    global $connect;
+
+    $currentDateTime = date("Y-m-d H:i:s");
+
+    if(isset($_GET['r']) || !empty($_GET['r'])){
+
+        $link_id = $_GET['r'];
+
+        $sqlLink = "SELECT * FROM `reset_password` WHERE `link_id` = ?";
+
+        $sqlLinkPrep = mysqli_prepare($connect, $sqlLink);
+
+        $sqlLinkBind = mysqli_stmt_bind_param($sqlLinkPrep, "s", $link_id);
+
+        mysqli_stmt_execute($sqlLinkPrep);
+
+        if($sqlLinkResult = mysqli_stmt_get_result($sqlLinkPrep)){
+
+            $sqlLinkNum = mysqli_num_rows($sqlLinkResult) > 0;
+
+            if($sqlLinkNum){
+
+                $sqlLinkFetch = mysqli_fetch_assoc($sqlLinkResult);
+
+                $resetLink = $sqlLinkFetch['link_id'];
+                $expiredTime = $sqlLinkFetch['expire_time'];
+
+                if($currentDateTime > $expiredTime){
+
+                    echo"
+                        <h3 style='text-align: center;'>Oops, Link has expired</h3>
+
+                        <p style='text-align: center;'>This link has expired, click <a href='reset.php' style='color: blue;'>Go back</a></p>
+                    ";
+                    
+
+                }else{
+
+                    echo"
+
+                        <div class='login-header'>
+                            <h2 class='login-title'>Change Password</h2>
+                        </div>
+
+                        
+                        <form method='POST'>
+                            <div class='form-group'>
+                                <label class='form-label' for='password'>New Password</label>
+                                <input type='password' name='new_pw' class='form-input' required autocomplete='off'>
+                            </div>
+
+                            <div class='form-group'>
+                                <label class='form-label' for='password'>Confirm New Password</label>
+                                <input type='password' name='c_new_pw' class='form-input' required autocomplete='off'>
+                            </div>
+
+                            <button type='submit' name='pw' class='btn btn-primary'>Reset Password</button>
+                        </form>
+
+                    ";
+
+                }
+
+            }else{
+                header("Location: login.php");
+            }
+
+        }else{
+
+            die(mysqli_error($connect));
+
+        }
+
+    }else{
+        header("Location: login.php");
+    }
+
 }

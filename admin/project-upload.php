@@ -1230,5 +1230,89 @@ if(isset($_POST['telegram_link'])){
 
 }
 
+?>
 
+<?php
+
+// Change Password
+
+if(isset($_POST['update_password'])){
+
+    $newPassword = trim(filter_input(INPUT_POST, 'new_pw', FILTER_SANITIZE_SPECIAL_CHARS));
+
+    $confirmPassword = trim(filter_input(INPUT_POST, 'c_new_pw', FILTER_SANITIZE_SPECIAL_CHARS));
+
+    if($newPassword !== $confirmPassword){
+
+        echo"
+            <p class='alert-failed'>New Password and Confirm Password are not the same.</p>
+        ";
+
+    }else{
+
+        $hashPw = password_hash($confirmPassword, PASSWORD_DEFAULT);
+
+        $updateSql = "UPDATE `admin_login` SET `admin_password` = ? WHERE `admin_email` = ?";
+
+        $updatePrep = mysqli_prepare($connect, $updateSql);
+
+        $updateBind = mysqli_stmt_bind_param($updatePrep, "si", $hashPw, $adminSession);
+
+        if(mysqli_stmt_execute($updatePrep)){
+
+            echo"<p class='alert-success'>Password Updated Successfully.</p>";
+            
+        }else{
+        
+            echo"<p class='alert-failed'>Failed to update password.</p>";
+        
+        }
+    }
+
+}
+
+if(isset($_POST['pw'])){
+
+    $newPassword = trim(filter_input(INPUT_POST, 'new_pw', FILTER_SANITIZE_SPECIAL_CHARS));
+
+    $confirmPassword = trim(filter_input(INPUT_POST, 'c_new_pw', FILTER_SANITIZE_SPECIAL_CHARS));
+
+    if($newPassword !== $confirmPassword){
+
+        echo"
+            <p class='alert-failed'>New Password and Confirm Password are not the same.</p>
+        ";
+
+    }else{
+
+        $hashPw = password_hash($confirmPassword, PASSWORD_DEFAULT);
+
+        $updateSql = "UPDATE `admin_login` SET `admin_password` = ? WHERE `admin_email` = ?";
+
+        $updatePrep = mysqli_prepare($connect, $updateSql);
+
+        $updateBind = mysqli_stmt_bind_param($updatePrep, "si", $hashPw, $adminEmail);
+
+        if(mysqli_stmt_execute($updatePrep)){
+
+            echo"<p class='alert-success'>Password Updated Successfully. You will be redirect to the login page, do not refresh.</p>";
+
+            header("refresh: 8; url='login.php'");
+            
+            $delete = "DELETE FROM `reset_password` WHERE `email` = ?";
+            
+            $deletePrep = mysqli_prepare($connect, $delete);
+            
+            $deleteBind = mysqli_stmt_bind_param($deletePrep, "s", $adminEmail);
+            
+            mysqli_stmt_execute($deletePrep);
+            
+        }else{
+        
+            echo"<p class='alert-failed'>Failed to update password.</p>";
+        
+        }
+    }
+
+}
 ?>

@@ -229,12 +229,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 <form method='POST'>
                     <div class="form-group">
                         <label class="form-label" for="email">Email Address</label>
-                        <input type="text" name="email" class="form-input" placeholder="Enter your email" required autocomplete="off">
+                        <input type="email" name="email" class="form-input" placeholder="Enter your email" required autocomplete="off">
                     </div>
 
                     <div class="form-group">
                         <label class="form-label" for="password">Password</label>
                         <input type="password" name="password" class="form-input" placeholder="Enter your password" required>
+
+                        <small>
+                            <a href="reset.php" class="mt-3">Forgot Password?</a>
+                        </small>
                     </div>
 
                     <button type="submit" name="login" class="btn btn-primary">

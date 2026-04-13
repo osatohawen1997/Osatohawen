@@ -19,5 +19,6 @@ composer.lock
 # htaccess ignore
 
 .htaccess
+
+
 /database-connection/
-!/database-connection/.gitkeep
